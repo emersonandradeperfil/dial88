@@ -9,9 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Link para o CSS Externo -->
     <link rel="stylesheet" href="style.css">
-    
     <link rel="icon" href="img/icon_dial88.png">
     <title>dial88</title>
 </head>
@@ -21,32 +19,109 @@
     <header class="header">
         <div id="logo">
             <img src="img/logo_dial88.png" alt="Logo da dial88">
-            <p>ESCOLHA CUIDADOSA - INTELIGENTE | QUALIFICADA</p>
+            <p>ESCOLHA CUIDADOSA • INTELIGENTE | QUALIFICADA</p>
         </div>
 
-        <!-- Linha divisória superior -->
         <hr class="linha-separadora">
 
-        <!-- Menu de Navegação -->
         <nav class="menu">
-            <a href="#">SOBRE NÓS</a>
+            <a href="#logo">INÍCIO</a>
+            <a href="#sobre">SOBRE NÓS</a>
             <a href="#">CURADORIA</a>
-            <a href="#">CONTATO</a>
+            <a href="#">SUPORTE</a>
         </nav>
 
-        <!-- Linha divisória inferior -->
         <hr class="linha-separadora">
     </header>
 
-    <!-- CONTEÚDO PRINCIPAL (HERO) -->
-    <main class="hero">
-        <section class="hero-content">
-            <h1>REDEFININDO O BEM-ESTAR<br>COM CURADORIA DE ELITE</h1>
-            <p>Na dial88, oferecemos uma seleção qualificada de produtos de alta performance, rigorosamente escolhidos para elevar sua rotina e promover um estilo de vida mais inteligente e equilibrado. Cada escolha é uma promessa de excelência.</p>
-            
-            <a href="#" class="btn-acao">CONHECER NOSSA SELEÇÃO</a>
+    <!-- CONTEÚDO PRINCIPAL (Múltiplas Seções empilhadas) -->
+    <main class="conteudo-principal">
+
+        <!-- SEÇÃO 1: HERO (Topo principal) -->
+        <section class="secao-padrao hero">
+            <div class="container-texto">
+                <h1>REDEFININDO O BEM-ESTAR<br>COM CURADORIA DE ELITE</h1>
+                <p>Na dial88, oferecemos uma seleção qualificada de produtos de alta performance, rigorosamente escolhidos para elevar sua rotina e promover um estilo de vida mais inteligente e equilibrado. Cada escolha é uma promessa de excelência.</p>
+                <a href="#" class="btn-acao">CONHECER NOSSA SELEÇÃO</a>
+            </div>
         </section>
+
+        <hr class="linha-separadora">
+
+        <!-- SEÇÃO 2: NOVA SEÇÃO (Com H2) -->
+        <section class="secao-padrao" id="sobre">
+            <div class="container-texto">
+
+                <h2>SOBRE NÓS</h2>
+                
+                <h3>O COMPROMISSO DIAL88 COM A EXCELÊNCIA</h3>
+                
+                <p>
+                    Acreditamos que a verdadeira qualidade de vida contemporânea nasce do equilíbrio entre vitalidade e clareza mental. No entanto, em um mercado saturado de promessas comuns, encontrar soluções de saúde, estética e nutrição que entreguem alta performance real tornou-se um grande desafio.
+                </p>
+
+                <p>
+                    A dial88 nasceu para ser o seu filtro definitivo. Não operamos como uma loja de massa; funcionamos como um selo de curadoria internacional. Nossa equipe analisa rigorosamente os ativos, a procedência e a tecnologia de ponta por trás de cada fórmula e produto antes de integrá-lo ao nosso catálogo.
+                </p>
+
+                <p>
+                    Seja para otimizar a sua rotina diária, investir na longevidade ativa ou potencializar o bem-estar celular, cada item chancelado pela dial88 é uma escolha inteligente, cuidadosa e qualificada.
+                    Desenvolvida para quem não abre mão da máxima qualidade
+                </p>
+
+                <hr class="linha-separadora">
+
+                <div class="grid-pilares">
+                    
+                    <h3>OS TRÊS PILARES DA DIAL88</h3>
+
+                    <!-- Pilar 1 -->
+                    <div class="cartao-pilar">
+                        <h3>Pilar 1: Curadoria Especializada</h3>
+                        <p>Fórmulas inovadoras e produtos selecionados sob rígidos padrões internacionais de pureza, eficácia e biotecnologia.</p>
+                    </div>
+
+                    <!-- Pilar 2 -->
+                    <div class="cartao-pilar">
+                        <h3>Pilar 2: Seleção Inteligente</h3>
+                        <p>Soluções inteligentes focadas em longevidade, perfeitamente desenhadas para acompanhar o ritmo dinâmico de uma rotina moderna.</p>
+                    </div>
+
+                    <!-- Pilar 3 -->
+                    <div class="cartao-pilar">
+                        <h3>Pilar 3: Alta Qualidade Garantida</h3>
+                        <p>Rigor na procedência do início ao fim. Uma experiência de consumo premium, com a segurança de entrega que você exige.</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
     </main>
+
+    <!-- RODAPÉ INSTITUCIONAL -->
+    <footer class="rodape">
+        <div class="container-rodape">
+            
+            <!-- Links Institucionais -->
+            <nav class="links-rodape">
+                <a href="#">Política de Privacidade</a>
+                <span class="divisor">|</span>
+                <a href="#">Termos de Uso</a>
+                <span class="divisor">|</span>
+                <a href="#">Rastrear Pedido</a>
+                <span class="divisor">|</span>
+                <a href="#">Atendimento ao Cliente</a>
+            </nav>
+
+            <!-- Aviso de Transparência e Direitos Autoriais -->
+            <div class="aviso-transparencia">
+                <p>Copyright © 2026 dial88. Todos os direitos reservados. As informações e produtos recomendados pela curadoria dial88 têm foco exclusivo em bem-estar, estilo de vida e qualidade de vida geral, não substituindo avaliações ou aconselhamentos médicos especializados. Os resultados individuais podem variar de pessoa para pessoa.</p>
+            </div>
+
+        </div>
+    </footer>
 
 </body>
 </html>
