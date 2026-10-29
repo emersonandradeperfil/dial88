@@ -310,6 +310,47 @@ body {
 }
 
 /* ==========================================================
+   BOTÃO FLUTUANTE
+   ========================================================== */
+.btn-flutuante {
+    position: fixed;
+    bottom: 25px;            /* Distância do fundo da tela */
+    right: 25px;             /* Distância do canto direito */
+    z-index: 9999;           /* Garante que fique por cima de todos os elementos */
+    
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+    background: var(--detalhe-botao); /* Usa o mesmo tom metálico da dial88 */
+    color: white;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    
+    padding: 12px 20px;
+    border-radius: 50px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    
+    /* Transição suave de posição/tamanho/sombra ao passar o mouse */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Ícone dentro do botão */
+.btn-flutuante svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Efeito ao passar o mouse (Hover suave) */
+.btn-flutuante:hover {
+    transform: translateY(-4px); /* Sobe suavemente */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* ==========================================================
    RODAPÉ INSTITUCIONAL
    ========================================================== */
 .rodape {
@@ -431,6 +472,13 @@ body {
         width: 100%;
         padding: 16px 20px;
         font-size: 0.82rem;
+    }
+
+    .btn-flutuante {
+        bottom: 15px;
+        right: 15px;
+        padding: 10px 16px;
+        font-size: 0.72rem;
     }
 
 }
