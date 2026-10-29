@@ -158,7 +158,7 @@
 
   </main>
 
-  <a href="../nichos/catalogo.html" class="btn-flutuante" aria-label="Atendimento ao Cliente">
+  <a href="nichos/catalogo.html" class="btn-flutuante" aria-label="Atendimento ao Cliente">
     <span>CATALOG</span>
   </a>
 
@@ -189,30 +189,53 @@
 
   <!-- Carregar os Js -->
   <script>
-    // Função genérica para injetar qualquer componente HTML externo
-    async function carregarComponente(idElemento, caminhoArquivo) {
-      try {
-        const resposta = await fetch(caminhoArquivo);
-        if (!resposta.ok) {
-          throw new Error(`Não foi possível carregar o arquivo: ${caminhoArquivo}`);
-        }
 
-        const html = await resposta.text();
-        document.getElementById(idElemento).innerHTML = html;
+    document.addEventListener('DOMContentLoaded', function () {
+      const slides = document.querySelectorAll('.slide');
+      const nextBtn = document.querySelector('.carrossel-btn.next');
+      const prevBtn = document.querySelector('.carrossel-btn.prev');
 
-      } catch (erro) {
-        console.error("Erro ao carregar componente:", erro);
+      let currentSlide = 0;
+      let autoSlideInterval;
+
+      function showSlide(index) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        slides[index].classList.add('active');
       }
-    }
 
-    // Função principal que executa a injeção assim que a página é totalmente carregada
-    document.addEventListener("DOMContentLoaded", () => {
-      carregarComponente("rodape-global", "/componentes/footer.html");
-      carregarComponente("botao-global", "/componentes/butao.html");
+      function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+      }
+
+      function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(currentSlide);
+      }
+
+      function startAutoSlide() {
+        clearInterval(autoSlideInterval);
+        autoSlideInterval = setInterval(nextSlide, 5000);
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', function () {
+          nextSlide();
+          startAutoSlide();
+        });
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', function () {
+          prevSlide();
+          startAutoSlide();
+        });
+      }
+
+      showSlide(currentSlide);
+      startAutoSlide();
     });
 
-
   </script>
-
 
 </body>
