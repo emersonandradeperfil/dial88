@@ -597,6 +597,13 @@ body {
     color: #444;
     line-height: 1.6;
     margin-bottom: 20px;
+    text-align: justify;
+}
+
+section p {
+
+    text-align: justify;
+
 }
 
 .bloco-conteudo .imagem {
