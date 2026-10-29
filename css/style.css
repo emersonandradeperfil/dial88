@@ -30,11 +30,26 @@ body {
 /* ==========================================================
    CABEÇALHO & LOGO
    ========================================================== */
-.header {
+
+/*  .header {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 25px 20px 10px 20px;
+} */
+
+.header {
+    position: sticky;  /* Torna o cabeçalho "grudento" */
+    top: 0;            /* Cola no topo da janela assim que rolar */
+    z-index: 1000;     /* Garante que fique acima de todo o conteúdo ao passar por cima */
+    background-color: var(--fundo); /* Importante para não deixar o texto de fundo vazar por trás */
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 20px 10px 20px;
+
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 #logo {
@@ -46,8 +61,9 @@ body {
 }
 
 #logo img {
-    max-width: 250px;
+    max-width: 40%;
     height: auto;
+    margin: 10px;
 }
 
 #logo p {
@@ -71,8 +87,11 @@ body {
 /* Menu */
 .menu {
     display: flex;
-    gap: 40px;
+    gap: 10%;
     padding: 5px 0;
+    width: 100%;
+    justify-content: center;
+    
 }
 
 .menu a {
@@ -314,16 +333,19 @@ body {
    ========================================================== */
 .btn-flutuante {
     position: fixed;
-    bottom: 25px;            /* Distância do fundo da tela */
-    right: 25px;             /* Distância do canto direito */
-    z-index: 9999;           /* Garante que fique por cima de todos os elementos */
+    bottom: 25px;
+    right: 25px;
+    z-index: 9999;
     
     display: flex;
     align-items: center;
     gap: 10px;
     
-    background: var(--detalhe-botao); /* Usa o mesmo tom metálico da dial88 */
-    color: white;
+    /* Gradiente estendido para permitir a animação de movimento */
+    background: linear-gradient(135deg, #7A5C38 0%, #A38257 35%, white 50%, #A38257 65%, #7A5C38 100%);
+    background-size: 250% auto; /* Deixa o fundo maior que o botão para podermos movimentá-lo */
+    
+    color: #FFFFFF;
     text-decoration: none;
     font-size: 0.8rem;
     font-weight: 700;
@@ -334,20 +356,27 @@ body {
     border-radius: 50px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     
-    /* Transição suave de posição/tamanho/sombra ao passar o mouse */
+    /* Aplica a animação contínua de brilho */
+    animation: brilhoGradiente 4s ease infinite;
+    
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-/* Ícone dentro do botão */
-.btn-flutuante svg {
-    width: 20px;
-    height: 20px;
+.btn-flutuante:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
 
-/* Efeito ao passar o mouse (Hover suave) */
-.btn-flutuante:hover {
-    transform: translateY(-4px); /* Sobe suavemente */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+@keyframes brilhoGradiente {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%; /* Desloca o gradiente para o outro lado */
+    }
+    100% {
+        background-position: 0% 50%; /* Retorna ao início de forma cíclica e suave */
+    }
 }
 
 /* ==========================================================
@@ -415,8 +444,9 @@ body {
         padding: 0 5px;
     }
 
-    .menu {
-        gap: 20px;
+    #logo img {
+        margin-top: 50px;
+        max-width: 100%;
     }
 
     .secao-padrao {
