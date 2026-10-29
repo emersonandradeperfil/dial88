@@ -24,10 +24,25 @@
         <nav class="menu">
             <a href="index.html">HOME</a>
             <a href="#sobre">ABOUT</a>
-            <a href="bem_estar.html">CURATION</a>
-            <a href="nichos/catalogo.html">♂</a>
-            <a href="nichos/catalogo.html">♀</a>
-            <!-- <a href="bem_estar.html">SUPORTE</a> -->
+
+            <a href="her.html" class="menu-item-genero">
+                <svg class="icon-feminino" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="9" r="5"></circle>
+                    <path d="M12 14V21"></path>
+                    <path d="M9 18H15"></path>
+                </svg>
+                <span>HER</span>
+            </a>
+
+            <a href="him.html" class="menu-item-genero">
+                <svg class="icon-masculino" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="10" cy="14" r="5"></circle>
+                    <path d="M19 5L13.5 10.5"></path>
+                    <path d="M14 5H19V10"></path>
+                </svg>
+                <span>HIM</span>
+            </a>
+
         </nav>
 
     </header>
@@ -48,7 +63,9 @@
                 <p>Na dial88, oferecemos uma seleção qualificada de produtos de alta performance, rigorosamente
                     escolhidos para elevar sua rotina e promover um estilo de vida mais inteligente e equilibrado. Cada
                     escolha é uma promessa de excelência.</p>
-                <a href="nichos/catalogo.html" class="btn-click-here">CONHEÇA NOSSA SELEÇÃO</a>
+
+                <button class="btn-click-here" onclick="toggleCatalogDialog()" >CONHEÇA NOSSA SELEÇÃO</button>
+
             </div>
         </section>
 
@@ -113,19 +130,70 @@
             </div>
         </section>
 
-        <!-- BOTÃO FLUTUANTE -->
-        <a href="bem_estar.html" class="btn-flutuante" aria-label="Atendimento ao Cliente">
+        <hr class="linha-separadora">
 
-            <span>CATALOG</span>
-        </a>
+        <section class="secao-cta">
+            <div class="container-cta">
+        
+                <h2 class="cta-titulo">
+                    Invista no seu equilíbrio.
+                </h2>
+        
+                <h3>Conheça a nossa seleção qualificada de suplementação premium de alta performance.</h3>
+                <br>
+
+                <p class="cta-subtitulo">
+                    Clique no botão abaixo para conferir a disponibilidade da fórmula original importada recomendada pela nossa
+                    curadoria:
+                </p>
+        
+                <!-- Substitua 'SEU_LINK_AQUI' pelo link de afiliado ou checkout -->
+                <button class="btn-click-here" onclick="toggleCatalogDialog()">
+                    ACESSAR CATALOGO
+                </button>
+        
+            </div>
+        </section>
 
     </main>
 
-    <a href="/nichos/catalogo.html" class="btn-flutuante" aria-label="Atendimento ao Cliente">
+    <button class="btn-flutuante" aria-label="catalogo" onclick="toggleCatalogDialog()">
         <span>CATALOG</span>
-    </a>
+    </button>
 
-    <!-- RODAPÉ INSTITUCIONAL -->
+    <!-- O Dialog (Modal) -->
+    <div class="catalog-overlay" id="catalogDialog" onclick="fecharDialogFora(event)">
+        <div class="catalog-modal">
+            <button class="close-modal" onclick="toggleCatalogDialog()">&times;</button>
+
+            <h3>Choose your catalog:</h3>
+
+            <div class="catalog-options">
+
+                <!-- Opção Feminina -->
+                <a href="her.html" class="catalog-card">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="9" r="5"></circle>
+                        <path d="M12 14V21"></path>
+                        <path d="M9 18H15"></path>
+                    </svg>
+                    <span>HER</span>
+                </a>
+
+                <!-- Opção Masculina -->
+                <a href="him.html" class="catalog-card">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="10" cy="14" r="5"></circle>
+                        <path d="M19 5L13.5 10.5"></path>
+                        <path d="M14 5H19V10"></path>
+                    </svg>
+                    <span>HIM</span>
+                </a>
+
+            </div>
+        </div>
+    </div>
+
     <footer class="rodape">
         <div class="container-rodape">
 
@@ -150,6 +218,25 @@
 
         </div>
     </footer>
+
+
+<script>
+
+    function toggleCatalogDialog() {
+        const dialog = document.getElementById('catalogDialog');
+        dialog.classList.toggle('active');
+    }
+
+    // Fecha o dialog se o usuário clicar no fundo escuro (fora da caixinha)
+    function fecharDialogFora(event) {
+        const dialog = document.getElementById('catalogDialog');
+        if (event.target === dialog) {
+            dialog.classList.remove('active');
+        }
+    }
+
+</script>
+
 </body>
 
 </html>

@@ -22,45 +22,30 @@
   <header class="header">
 
     <nav class="menu">
-      <a href="index.html">HOME</a>
-      <a href="index.html#sobre">ABOUT</a>
-      <a href="nichos/catalogo.html"><b>♂</b></a>
-      <a href="nichos/catalogo.html"><b>♀</b></a>
-    </nav>
+            <a href="../index.html">HOME</a>
+            <a href="../index.html#sobre">ABOUT</a>
+
+            <a href="catalogo_her.html" class="menu-item-genero">
+                <svg class="icon-feminino" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="9" r="5"></circle>
+                    <path d="M12 14V21"></path>
+                    <path d="M9 18H15"></path>
+                </svg>
+                <span>HER</span>
+            </a>
+
+            <a href="catalogo_him.html" class="menu-item-genero">
+                <svg class="icon-masculino" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="10" cy="14" r="5"></circle>
+                    <path d="M19 5L13.5 10.5"></path>
+                    <path d="M14 5H19V10"></path>
+                </svg>
+                <span>HIM</span>
+            </a>
+
+        </nav>
 
   </header>
-
-  <!-- CARROSSEL -->
-  <section id="topo" class="slider-container carrossel-container">
-
-    <div class="slide active">
-      <img class="foto_carrossel" src="img/carrossel/40mais.jpg" alt="img1">
-
-      <div class="card-overlay">
-        <a href="https://dial88.store/" class="btn-click-here">Acessar</a>
-      </div>
-    </div>
-
-    <div class="slide">
-      <img class="foto_carrossel" src="img/carrossel/50mais.jfif" alt="img2">
-
-      <div class="card-overlay">
-        <a href="https://dial88.store/" class="btn-click-here">Acessar</a>
-      </div>
-    </div>
-
-    <div class="slide">
-      <img class="foto_carrossel" src="img/carrossel/60mais.webp" alt="img3">
-
-      <div class="card-overlay">
-        <a href="https://dial88.store/" class="btn-click-here">Acessar</a>
-      </div>
-    </div>
-
-    <button class="carrossel-btn prev" aria-label="Anterior">&#10094;</button>
-    <button class="carrossel-btn next" aria-label="Próximo">&#10095;</button>
-
-  </section>
 
   <main>
 
@@ -189,55 +174,5 @@
     </div>
   </footer>
 
-  <!-- Carregar os Js -->
-  <script>
-
-    document.addEventListener('DOMContentLoaded', function () {
-      const slides = document.querySelectorAll('.slide');
-      const nextBtn = document.querySelector('.carrossel-btn.next');
-      const prevBtn = document.querySelector('.carrossel-btn.prev');
-
-      let currentSlide = 0;
-      let autoSlideInterval;
-
-      function showSlide(index) {
-        slides.forEach(slide => slide.classList.remove('active'));
-        slides[index].classList.add('active');
-      }
-
-      function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
-      }
-
-      function prevSlide() {
-        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-        showSlide(currentSlide);
-      }
-
-      function startAutoSlide() {
-        clearInterval(autoSlideInterval);
-        autoSlideInterval = setInterval(nextSlide, 5000);
-      }
-
-      if (nextBtn) {
-        nextBtn.addEventListener('click', function () {
-          nextSlide();
-          startAutoSlide();
-        });
-      }
-
-      if (prevBtn) {
-        prevBtn.addEventListener('click', function () {
-          prevSlide();
-          startAutoSlide();
-        });
-      }
-
-      showSlide(currentSlide);
-      startAutoSlide();
-    });
-
-  </script>
 
 </body>
