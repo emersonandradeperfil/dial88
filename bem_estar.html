@@ -158,12 +158,61 @@
 
   </main>
 
-  <!-- Trazer os componentes -->
-  <div id="botao-global"></div>
-  <div id="rodape-global"></div>
+  <a href="../nichos/catalogo.html" class="btn-flutuante" aria-label="Atendimento ao Cliente">
+    <span>CATALOG</span>
+  </a>
+
+  <!-- RODAPÉ INSTITUCIONAL -->
+  <footer class="rodape">
+    <div class="container-rodape">
+
+      <!-- Links Institucionais -->
+      <nav class="links-rodape">
+        <a href="#">Política de Privacidade</a>
+        <span class="divisor">|</span>
+        <a href="#">Termos de Uso</a>
+        <span class="divisor">|</span>
+        <a href="#">Rastrear Pedido</a>
+        <span class="divisor">|</span>
+        <a href="#">Atendimento ao Cliente</a>
+      </nav>
+
+      <!-- Aviso de Transparência e Direitos Autoriais -->
+      <div class="aviso-transparencia">
+        <p>Copyright © 2026 dial88. Todos os direitos reservados. As informações e produtos recomendados pela curadoria
+          dial88 têm foco exclusivo em bem-estar, estilo de vida e qualidade de vida geral, não substituindo avaliações
+          ou aconselhamentos médicos especializados. Os resultados individuais podem variar de pessoa para pessoa.</p>
+      </div>
+
+    </div>
+  </footer>
 
   <!-- Carregar os Js -->
-  <script src="../componentes/js/componentes.js"></script>
-  <script src="../componentes/js/carrossel.js"></script>
+  <script>
+    // Função genérica para injetar qualquer componente HTML externo
+    async function carregarComponente(idElemento, caminhoArquivo) {
+      try {
+        const resposta = await fetch(caminhoArquivo);
+        if (!resposta.ok) {
+          throw new Error(`Não foi possível carregar o arquivo: ${caminhoArquivo}`);
+        }
+
+        const html = await resposta.text();
+        document.getElementById(idElemento).innerHTML = html;
+
+      } catch (erro) {
+        console.error("Erro ao carregar componente:", erro);
+      }
+    }
+
+    // Função principal que executa a injeção assim que a página é totalmente carregada
+    document.addEventListener("DOMContentLoaded", () => {
+      carregarComponente("rodape-global", "/componentes/footer.html");
+      carregarComponente("botao-global", "/componentes/butao.html");
+    });
+
+
+  </script>
+
 
 </body>
