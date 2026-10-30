@@ -249,6 +249,49 @@ body {
 }
 
 /* ==========================================================
+   SEÇÃO DE REFERÊNCIAS CIENTÍFICAS
+   ========================================================== */
+.referencias-cientificas {
+    max-width: 820px;
+    
+    padding: 10px;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.referencias-cientificas h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #072229;
+    
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.referencias-cientificas ol {
+    padding-left: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.referencias-cientificas li {
+    line-height: 1.5;
+}
+
+/* Estilo para links de referência no texto */
+.link-referencia {
+    color: #7A5C38;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.link-referencia:hover {
+    color: #072229;
+}
+
+/* ==========================================================
    ÁREA DE CHAMADA PARA AÇÃO (CTA)
    ========================================================== */
 .secao-cta {

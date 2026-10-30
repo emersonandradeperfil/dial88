@@ -152,20 +152,8 @@ body {
     margin-bottom: 12px;
 }
 
-/* Subtítulo / Chamada em Caixa Alta (H2) */
-.container-texto h2 {
-    font-size: 1.15rem;
-    font-weight: 600;
-    line-height: 1.5;
-    text-transform: uppercase;
-    color: #615852; /* Tom mais suave para evitar o visual agressivo */
-    text-align: center;
-    letter-spacing: 0.5px;
-    margin-bottom: 28px;
-}
-
 /* Lead / Parágrafo de Introdução em Destaque (Primeiro H3) */
-.container-texto h3:first-of-type {
+.sumario {
     font-size: 1.05rem;
     font-weight: 500;
     line-height: 1.65;
@@ -177,6 +165,8 @@ body {
     border-radius: 0 8px 8px 0;
     margin-bottom: 36px;
     width: 100%;
+    text-align: justify;
+    font-style: italic;
 }
 
 /* Subtítulos Intermediários dentro do texto (Demais H3) */
@@ -236,6 +226,7 @@ body {
     color: var(--texto);
     line-height: 1.45;
     margin-bottom: 20px;
+    text-align: justify;
 }
 
 .cta-subtitulo {
