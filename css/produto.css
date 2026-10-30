@@ -597,6 +597,78 @@ ol {
   line-height: 1.5;
 }
 
+/* Seção Geral */
+.faq-section {
+  padding: 60px 20px;
+  background-color: #f4f6f8;
+  display: flex;
+  justify-content: center;
+}
+
+.faq-container {
+  max-width: 800px;
+  width: 100%;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.faq-container h2 {
+  font-size: 26px;
+  color: #0b2545;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: 800;
+}
+
+/* Cada item do FAQ */
+.faq-item {
+  border-bottom: 1px solid #e2e8f0;
+  padding: 20px 0;
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+/* Pergunta (summary) */
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: #0b2545;
+  cursor: pointer;
+  list-style: none; /* Remove a setinha padrão feia do navegador */
+}
+
+/* Remove o marcador padrão do Chrome/Safari */
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+
+/* Ícone de mais/menos (usando o Font Awesome que você adicionou antes) */
+.faq-question .icon-toggle {
+  font-size: 16px;
+  color: #0077b6;
+  transition: transform 0.3s ease;
+}
+
+/* Resposta */
+.faq-answer {
+  padding-top: 15px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #555555;
+}
+
+/* Mágica do CSS: Quando o <details> estiver aberto, troca o ícone de mais (+) para menos (-) */
+.faq-item[open] .fa-plus::before {
+  content: "\f068" !important; /* Código do ícone de menos (-) no Font Awesome */
+}
+
 /* ==========================================================
    8. RESPONSIVIDADE (MOBILE)
    ========================================================== */
