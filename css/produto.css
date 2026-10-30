@@ -126,21 +126,73 @@ body {
    5. ARTIGO / NOTÍCIA (TEXTOS SUAVES E CONFORTÁVEIS)
    ========================================================== */
 .hero {
-    padding: 70px 20px;
+    padding: 10px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
 }
 
+/* Container principal da seção: centraliza os elementos e usa Flexbox */
+/* Garante que as colunas tenham a mesma altura (padrão do flex é stretch) */
+.produto-hero {
+  display: flex;
+  justify-content: center;
+  align-items: stretch; /* Estica as colunas para terem a mesma altura */
+  gap: 30px;
+  padding: 5px 5px;
+  
+  flex-wrap: wrap;
+}
+
+/* Coluna 1 agora vai acompanhar a altura da Coluna 2 */
+.produto-hero .coluna1 {
+  display: flex; /* Transforma em flex para controlar a imagem interna */
+  flex: 0 0 auto;
+  max-width: 500px;
+}
+
+/* Faz a imagem preencher 100% da altura e largura da sua coluna */
+.produto-hero .coluna1 img {
+  width: 100%;
+  height: 100%;       /* Ocupa 100% da altura da coluna 2 */
+  object-fit: cover;  /* Corta levemente a imagem se precisar, mas preenche o espaço sem distorcer */
+  display: block;
+  border-radius: 8px;
+}
+
+/* Coluna 2 (Texto) */
+.produto-hero .coluna2 {
+  flex: 0 0 auto;
+  max-width: 600px;
+}
+
+.produto-hero .container-texto {
+  /* background-color: #ffffff; */
+  padding: 30px;
+  border-radius: 8px;
+  height: 100%;       /* Garante que a caixa de texto ocupe toda a altura disponível */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Opcional: distribui os elementos uniformemente na vertical */
+}
+
+
 .container-texto {
-    max-width: 820px;
-    /* Largura ideal de leitura para artigos */
+    max-width: 1200px;
+    padding: 10px 10px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0;
+}
+
+.container-texto img {
+
+    max-width: 1200px;
+
 }
 
 /* Manchete Principal (H1) */
@@ -153,6 +205,93 @@ body {
     letter-spacing: -0.5px;
     margin-bottom: 12px;
 }
+
+/* Seção Geral */
+.ingredientes-section {
+  padding: 60px 20px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+}
+
+/* Container que organiza os cards lado a lado e quebra a linha se faltar espaço */
+#ingredientes {
+  display: flex;
+  flex-wrap: wrap;              /* Permite ir para a linha de baixo automaticamente se adicionar mais */
+  justify-content: center;      /* Centraliza os cards na tela */
+  gap: 40px;                    /* Espaço entre um card e outro */
+  max-width: 1200px;
+  width: 100%;
+}
+
+#ingredientes-topicos {
+
+  display: flex;
+  flex-wrap: wrap;               /* Permite ir para a linha de baixo (3 em cima, 3 embaixo) */
+  justify-content: center;       /* Centraliza os cards na tela */
+  gap: 40px;                     /* Espaço entre um card e outro */
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+#ingredientes-topicos .card, 
+#ingredientes-topicos .ingrediente {
+  flex: 0 0 calc(33.333% - 27px); /* 33.333% divide exatamente em 3 colunas */
+  max-width: 360px;               /* Garante que não estigam demais em telas grandes */
+  box-sizing: border-box;
+  
+}
+
+/* Cada card de ingrediente individual */
+.ingrediente {
+  flex: 1 1 300px;              /* Tamanho flexível, base de 300px */
+  max-width: 250px;             /* Largura máxima para não ficarem esticados demais */
+  text-align: center;           /* Centraliza o título e o texto */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* O "Truque" do Hexágono na Imagem */
+.img-hex-container {
+  width: 200px;
+  height: 225px;                /* Proporção ideal para o formato de hexágono */
+  margin-bottom: 20px;
+  overflow: hidden;
+  /* Cria a forma geométrica de hexágono perfeito via CSS */
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08); /* Sombra suave idêntica à referência */
+  transition: transform 0.3s ease;
+}
+
+/* Efeito de zoom sutil ao passar o mouse na imagem (opcional) */
+.ingrediente:hover .img-hex-container {
+  transform: translateY(-5px);
+}
+
+.img-hex-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;            /* Garante que a foto preencha o hexágono sem distorcer */
+  display: block;
+}
+
+/* Estilização dos Textos */
+.ingrediente h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0b2545;
+  margin-bottom: 12px;
+}
+
+.ingrediente p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #555555;
+}
+
+
 
 /* Lead / Parágrafo de Introdução em Destaque (Primeiro H3) */
 .sumario {
@@ -251,6 +390,7 @@ body {
     border-radius: 25px;
     font-size: 22px;
     font-weight: bold;
+    text-align: center;
     text-decoration: none;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     background: linear-gradient(135deg, #072229 0%, #10373d 35%, white 50%, #10373d 65%, #072229 100%);
@@ -264,6 +404,8 @@ body {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
     background: linear-gradient(135deg, #7A5C38 0%, #A38257 35%, white 50%, #A38257 65%, #7A5C38 100%);
     background-size: 250% auto;
+    
+    
 }
 
 @keyframes brilhoGradiente {
@@ -362,6 +504,99 @@ body {
     max-width: 800px;
 }
 
+
+/* Seção Geral */
+.features-section {
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: center;
+}
+
+.features-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1100px;
+  width: 100%;
+}
+
+/* Cada Card (Ícone em cima, Título e Texto embaixo) */
+.feature-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center; /* Centraliza o conteúdo */
+  flex: 1 1 250px;
+  max-width: 350px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza os itens horizontalmente no flex */
+}
+
+/* Caixa do Ícone Redonda */
+.icon-box {
+  width: 60px;
+  height: 60px;
+  border: 2px solid #0077b6; /* Borda azul igual à sua referência */
+  border-radius: 50%;        /* Deixa redondo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  color: white;
+  background-color: #0077b6;
+  font-size: 24px;
+}
+
+ol {
+    margin-bottom: 20px;
+    /* display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: left; */
+    
+}
+
+ ol li::marker {
+    font-weight: bold;
+  }
+
+#rapaz {
+
+    justify-content: space-around;
+
+}
+
+/* Caso queira usar uma letra dentro (estilo o 'P' da sua foto) */
+.letter-icon {
+  background-color: #0077b6;
+  color: #ffffff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* Títulos e Textos */
+.feature-card h3 {
+  font-size: 20px;
+  color: #0b2545;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.feature-card p {
+  font-size: 14px;
+  color: #555555;
+  line-height: 1.5;
+}
+
 /* ==========================================================
    8. RESPONSIVIDADE (MOBILE)
    ========================================================== */
@@ -409,5 +644,24 @@ body {
         width: 60%;
         padding: 16px 20px;
         font-size: 1rem;
+        width: 80%;
     }
+
+    .produto-hero{
+
+        flex-direction: column;
+
+    }
+
+    #ingredientes-topicos {
+    gap: 20px; /* Reduz um pouco o espaçamento entre eles no celular */
+    padding: 0 15px; /* Adiciona uma margem lateral para não colar nas bordas da tela */
+  }
+
+  #ingredientes-topicos .card, 
+  #ingredientes-topicos .ingrediente {
+    flex: 0 0 100% !important; /* Ocupa 100% da largura, empilhando um embaixo do outro */
+    max-width: 100% !important;  /* Remove a restrição de largura máxima */
+  }
+
 }
