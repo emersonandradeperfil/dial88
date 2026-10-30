@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--
+    ==========================================================
+    COMO USAR ESTE MODELO
+    1. Salve uma cópia deste arquivo (ex.: produto_novo.html).
+    2. Use Localizar e Substituir (Ctrl+H) para trocar:
+         [PRODUTO]        -> nome do produto
+         [PUBLICO]        -> ex.: "bem-estar masculino"
+         [LINK_OFERTA]    -> link de afiliado / checkout
+       Depois troque as imagens (src) e os textos.
+    3. Para mais ou menos cards de ingredientes, copie ou apague
+       blocos <article class="card-item"> inteiros.
+    ==========================================================
+  -->
+
+  <!-- Google Fonts: Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/page.css">
+  <link rel="icon" href="../img/icon_dial88.png">
+
+  <title>[PRODUTO]: ingredientes e informações | dial88</title>
+  <meta name="description"
+    content="Conheça os ingredientes, as informações do produto e a disponibilidade atual de [PRODUTO].">
+</head>
+
+<body>
+
+  <!-- CABEÇALHO -->
+  <header class="header">
+
+    <nav class="menu">
+      <a href="../index.html">HOME</a>
+      <a href="../index.html#sobre">ABOUT</a>
+
+      <a href="../her.html" class="menu-item-genero">
+        <svg class="icon-feminino" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="9" r="5"></circle>
+          <path d="M12 14V21"></path>
+          <path d="M9 18H15"></path>
+        </svg>
+        <span>HER</span>
+      </a>
+
+      <a href="../him.html" class="menu-item-genero">
+        <svg class="icon-masculino" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="10" cy="14" r="5"></circle>
+          <path d="M19 5L13.5 10.5"></path>
+          <path d="M14 5H19V10"></path>
+        </svg>
+        <span>HIM</span>
+      </a>
+
+    </nav>
+
+  </header>
+
+  <!-- IMAGEM DE TOPO (banner do produto) -->
+  <section id="topo" class="slider-container carrossel-container">
+    <div class="slide active">
+      <img class="foto_carrossel" src="../img/itens/produto/banner-topo.png" alt="[PRODUTO]">
+    </div>
+  </section>
+
+  <main>
+
+    <!-- 1. ABERTURA -->
+    <section class="secao-padrao hero">
+      <div class="container-texto">
+        <h1>
+          Conheça [PRODUTO]: apoio diário para o seu [PUBLICO]
+        </h1>
+
+        <p class="sumario">
+          Veja os ingredientes, entenda como a fórmula funciona na rotina e confira a disponibilidade atual antes de
+          decidir se [PRODUTO] faz sentido para os seus objetivos de bem-estar.
+        </p>
+
+        <p>
+          À medida que os anos passam, cuidar da rotina e dos hábitos se torna cada vez mais importante. [PRODUTO] é um
+          suplemento alimentar que combina extratos botânicos, vitaminas e minerais, pensado para quem busca incluir um
+          complemento em uma abordagem mais ampla de qualidade de vida.
+        </p>
+
+        <p>
+          Nesta página, nossa curadoria reuniu as informações essenciais sobre a <a class="keyworks"
+            href="[LINK_OFERTA]">fórmula de [PRODUTO]</a>, para que você avalie com calma e tome uma decisão
+          informada.
+        </p>
+
+        <div class="cta-linha">
+          <a href="[LINK_OFERTA]" class="btn-click-here" rel="">CONHECER [PRODUTO]</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. O QUE É (imagem à esquerda, texto à direita) -->
+    <section class="secao-bloco alt">
+      <div class="container-bloco split">
+
+        <div class="split-midia">
+          <img src="../img/itens/produto/o-que-e.webp" alt="Embalagem de [PRODUTO]">
+        </div>
+
+        <div class="split-texto">
+          <h2>O que é [PRODUTO]?</h2>
+          <p>
+            [PRODUTO] é um suplemento alimentar com uma combinação de extratos botânicos e nutrientes essenciais,
+            incluindo <b>[INGREDIENTE 1]</b>, <b>[INGREDIENTE 2]</b>, <b>[INGREDIENTE 3]</b> e <b>[INGREDIENTE 4]</b>,
+            além de vitaminas e minerais selecionados.
+          </p>
+          <p>
+            A fórmula é indicada para adultos que desejam incorporar um suplemento à sua rotina de bem-estar. Conhecer
+            o que existe dentro do produto é um bom primeiro passo.
+          </p>
+          <div class="cta-linha esquerda">
+            <a href="[LINK_OFERTA]" class="btn-click-here" rel="">VER A FÓRMULA</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. INGREDIENTES (grade de cards: copie ou apague blocos) -->
+    <section class="secao-bloco">
+      <div class="container-bloco">
+
+        <div class="titulo-secao">
+          <h2>Ingredientes botânicos e nutrientes essenciais</h2>
+          <p>[PRODUTO] reúne ingredientes tradicionalmente usados em suplementos alimentares. Conheça cada um deles.</p>
+        </div>
+
+        <div class="grade-cards">
+
+          <article class="card-item">
+            <img src="../img/itens/produto/ingrediente-1.webp" alt="[INGREDIENTE 1]">
+            <div class="card-corpo">
+              <h3>[INGREDIENTE 1]</h3>
+              <p>Breve descrição do ingrediente, seu uso tradicional e por que ele faz parte da fórmula de [PRODUTO].
+              </p>
+            </div>
+          </article>
+
+          <article class="card-item">
+            <img src="../img/itens/produto/ingrediente-2.webp" alt="[INGREDIENTE 2]">
+            <div class="card-corpo">
+              <h3>[INGREDIENTE 2]</h3>
+              <p>Breve descrição do ingrediente, seu uso tradicional e por que ele faz parte da fórmula de [PRODUTO].
+              </p>
+            </div>
+          </article>
+
+          <article class="card-item">
+            <img src="../img/itens/produto/ingrediente-3.webp" alt="[INGREDIENTE 3]">
+            <div class="card-corpo">
+              <h3>[INGREDIENTE 3]</h3>
+              <p>Breve descrição do ingrediente, seu uso tradicional e por que ele faz parte da fórmula de [PRODUTO].
+              </p>
+            </div>
+          </article>
+
+          <article class="card-item">
+            <img src="../img/itens/produto/ingrediente-4.webp" alt="[INGREDIENTE 4]">
+            <div class="card-corpo">
+              <h3>[INGREDIENTE 4]</h3>
+              <p>Breve descrição do ingrediente, seu uso tradicional e por que ele faz parte da fórmula de [PRODUTO].
+              </p>
+            </div>
+          </article>
+
+          <article class="card-item">
+            <img src="../img/itens/produto/ingrediente-5.webp" alt="[INGREDIENTE 5]">
+            <div class="card-corpo">
+              <h3>[INGREDIENTE 5]</h3>
+              <p>Breve descrição do ingrediente, seu uso tradicional e por que ele faz parte da fórmula de [PRODUTO].
+              </p>
+            </div>
+          </article>
+
+          <article class="card-item">
+            <img src="../img/itens/produto/ingrediente-6.webp" alt="[INGREDIENTE 6]">
+            <div class="card-corpo">
+              <h3>[INGREDIENTE 6]</h3>
+              <p>Breve descrição do ingrediente, seu uso tradicional e por que ele faz parte da fórmula de [PRODUTO].
+              </p>
+            </div>
+          </article>
+
+          <article class="card-item">
+            <img src="../img/itens/produto/ingrediente-7.webp" alt="[INGREDIENTE 7]">
+            <div class="card-corpo">
+              <h3>[INGREDIENTE 7]</h3>
+              <p>Breve descrição do ingrediente, seu uso tradicional e por que ele faz parte da fórmula de [PRODUTO].
+              </p>
+            </div>
+          </article>
+
+          <article class="card-item">
+            <img src="../img/itens/produto/ingrediente-8.webp" alt="[INGREDIENTE 8]">
+            <div class="card-corpo">
+              <h3>[INGREDIENTE 8]</h3>
+              <p>Breve descrição do ingrediente, seu uso tradicional e por que ele faz parte da fórmula de [PRODUTO].
+              </p>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="cta-linha">
+          <a href="[LINK_OFERTA]" class="btn-click-here" rel="">VER DETALHES DE [PRODUTO]</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. POR QUE OLHAR COM ATENÇÃO (texto à esquerda, imagem à direita) -->
+    <section class="secao-bloco alt">
+      <div class="container-bloco split inverso">
+
+        <div class="split-midia">
+          <img src="../img/itens/produto/por-que.webp" alt="[PRODUTO] em destaque">
+        </div>
+
+        <div class="split-texto">
+          <h2>Por que olhar com atenção para [PRODUTO]?</h2>
+          <p>
+            Escolher um suplemento vai além do nome do produto. Vale entender a fórmula, ler as instruções de uso e
+            considerar como ele se encaixa na sua rotina. Três pontos para avaliar:
+          </p>
+
+          <div class="destaque">
+            <h4>Fórmula com vários ingredientes</h4>
+            <p>Analise a combinação de extratos botânicos, vitaminas e minerais presentes no produto.</p>
+          </div>
+
+          <div class="destaque">
+            <h4>Uso diário prático</h4>
+            <p>Consulte as orientações do fabricante sobre a porção recomendada e a forma de uso.</p>
+          </div>
+
+          <div class="destaque">
+            <h4>Transparência do produto</h4>
+            <p>Confira os detalhes, as opções de embalagem e a política de devolução antes de decidir.</p>
+          </div>
+
+          <div class="cta-linha esquerda">
+            <a href="[LINK_OFERTA]" class="btn-click-here" rel="">VER DISPONIBILIDADE</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. PASSO A PASSO -->
+    <section class="secao-bloco">
+      <div class="container-bloco">
+
+        <div class="titulo-secao">
+          <h2>Como [PRODUTO] se encaixa na sua rotina?</h2>
+          <p>Antes de incluir qualquer suplemento no dia a dia, reserve um momento para conhecer o produto.</p>
+        </div>
+
+        <ol class="passos">
+          <li>Revise a lista completa de ingredientes.</li>
+          <li>Leia as orientações de uso do fabricante.</li>
+          <li>Confira a porção diária e as opções de embalagem.</li>
+          <li>Considere alergias, medicamentos em uso ou condições de saúde existentes.</li>
+          <li>Converse com um profissional de saúde se tiver dúvidas sobre a adequação do produto para você.</li>
+        </ol>
+
+        <p class="nota-final">
+          [PRODUTO] deve ser considerado um suplemento, e não um substituto de uma alimentação equilibrada, de hábitos
+          saudáveis ou de acompanhamento médico.
+        </p>
+
+        <div class="cta-linha">
+          <a href="[LINK_OFERTA]" class="btn-click-here" rel="">VER INFORMAÇÕES OFICIAIS</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 6. INFORMAÇÕES DO PRODUTO (imagem à esquerda, itens à direita) -->
+    <section class="secao-bloco alt">
+      <div class="container-bloco">
+
+        <div class="titulo-secao">
+          <h2>O que saber antes de fazer o pedido</h2>
+          <p>Antes de comprar [PRODUTO], confira estes detalhes na página oficial da oferta.</p>
+        </div>
+
+        <div class="split">
+          <div class="split-midia">
+            <img src="../img/itens/produto/informacoes.webp" alt="Rótulo e fórmula de [PRODUTO]">
+          </div>
+
+          <div class="split-texto">
+            <div class="destaques-grade">
+
+              <div class="destaque">
+                <h4>Informações do produto</h4>
+                <p>Confirme o formato atual e as instruções de uso.</p>
+              </div>
+
+              <div class="destaque">
+                <h4>Ingredientes</h4>
+                <p>Revise o rótulo completo e as quantidades.</p>
+              </div>
+
+              <div class="destaque">
+                <h4>Opções de embalagem</h4>
+                <p>Compare as quantidades disponíveis e os valores.</p>
+              </div>
+
+              <div class="destaque">
+                <h4>Entrega</h4>
+                <p>Veja disponibilidade, frete e prazo estimado.</p>
+              </div>
+
+              <div class="destaque">
+                <h4>Política de reembolso</h4>
+                <p>Leia as condições vigentes do vendedor.</p>
+              </div>
+
+              <div class="destaque">
+                <h4>Atendimento</h4>
+                <p>Confirme como falar com o vendedor em caso de dúvidas.</p>
+              </div>
+
+            </div>
+
+            <p>Disponibilidade, preços, prazos de entrega e promoções podem mudar a qualquer momento.</p>
+
+            <div class="cta-linha esquerda">
+              <a href="[LINK_OFERTA]" class="btn-click-here" rel="">VER OFERTAS ATUAIS</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 7. [PRODUTO] É PARA VOCÊ? (texto à esquerda, imagem à direita) -->
+    <section class="secao-bloco">
+      <div class="container-bloco split inverso">
+
+        <div class="split-midia">
+          <img src="../img/itens/produto/embalagem.png" alt="Embalagem de [PRODUTO]">
+        </div>
+
+        <div class="split-texto">
+          <h2>[PRODUTO] é indicado para você?</h2>
+          <p>
+            Se você está considerando [PRODUTO], comece pela lista de ingredientes e pelas informações do fabricante.
+            Suplementos alimentares não são adequados para todas as pessoas.
+          </p>
+          <p>
+            Se você tem dúvidas sobre sua saúde, sintomas persistentes ou usa medicamentos, fale antes com um
+            profissional de saúde. Um suplemento não substitui avaliação ou tratamento médico.
+          </p>
+          <p>Uma boa decisão começa com informação confiável.</p>
+          <div class="cta-linha esquerda">
+            <a href="[LINK_OFERTA]" class="btn-click-here" rel="">CONHECER A OFERTA</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 8. PERGUNTAS FREQUENTES -->
+    <section class="secao-bloco alt">
+      <div class="container-bloco">
+
+        <div class="titulo-secao">
+          <h2>Perguntas frequentes</h2>
+        </div>
+
+        <div class="faq">
+
+          <details class="faq-item">
+            <summary>O que é [PRODUTO]?</summary>
+            <p>[PRODUTO] é um suplemento alimentar com uma combinação de ingredientes botânicos, vitaminas e minerais.
+              Consulte as informações oficiais para ver a fórmula completa.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Quais ingredientes [PRODUTO] contém?</summary>
+            <p>Liste aqui os principais ingredientes. Consulte sempre o rótulo atual para ver a lista completa e as
+              quantidades.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Como tomar [PRODUTO]?</summary>
+            <p>Siga as instruções do rótulo atual do produto e não exceda a porção recomendada.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Quando posso esperar resultados?</summary>
+            <p>As experiências são individuais e os resultados não são garantidos.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Existem efeitos colaterais?</summary>
+            <p>Suplementos podem causar efeitos indesejados ou interagir com medicamentos. Revise a lista de
+              ingredientes e consulte um profissional de saúde em caso de dúvida.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Posso tomar com outros medicamentos ou suplementos?</summary>
+            <p>Pergunte ao seu médico ou farmacêutico antes de combinar suplementos com medicamentos ou outros
+              produtos.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Onde comprar [PRODUTO]?</summary>
+            <p>Use o botão desta página para ver as informações atuais do vendedor, as opções de embalagem e as
+              condições de compra.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Existe garantia de devolução do dinheiro?</summary>
+            <p>Verifique a política de reembolso vigente do vendedor e as condições de elegibilidade antes de fazer o
+              pedido.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Quanto tempo leva a entrega?</summary>
+            <p>O prazo depende da política atual do vendedor e do seu local de entrega. Confira os detalhes na página
+              oficial do pedido.</p>
+          </details>
+
+        </div>
+
+        <div class="cta-linha">
+          <a href="[LINK_OFERTA]" class="btn-click-here" rel="">VER DISPONIBILIDADE ATUAL</a>
+        </div>
+
+      </div>
+    </section>
+
+    <hr class="linha-separadora">
+
+    <!-- 9. CHAMADA FINAL (CTA) -->
+    <section class="secao-cta final">
+      <div class="container-cta">
+
+        <h2 class="cta-titulo">
+          Pronto para saber mais sobre [PRODUTO]?
+        </h2>
+
+        <p class="cta-subtitulo">
+          Dê o próximo passo: confira os ingredientes, as opções de embalagem e as condições atuais de compra para
+          decidir se [PRODUTO] faz parte da sua rotina de bem-estar.
+        </p>
+
+        <a href="[LINK_OFERTA]" class="btn-click-here" rel="">NOSSA SELEÇÃO</a>
+
+        <img class="banner-final" src="../img/itens/produto/banner-final.webp" alt="[PRODUTO]">
+
+      </div>
+    </section>
+
+  </main>
+
+  <a href="../index.html#sobre" class="btn-flutuante" aria-label="Atendimento ao Cliente">
+    <span>dial88®</span>
+  </a>
+
+  <!-- RODAPÉ INSTITUCIONAL -->
+  <footer class="rodape">
+    <div class="container-rodape">
+
+      <!-- Links Institucionais -->
+      <nav class="links-rodape">
+        <a href="#">Política de Privacidade</a>
+        <span class="divisor">|</span>
+        <a href="#">Termos de Uso</a>
+        <span class="divisor">|</span>
+        <a href="#">Rastrear Pedido</a>
+        <span class="divisor">|</span>
+        <a href="#">Atendimento ao Cliente</a>
+      </nav>
+
+      <!-- Aviso de Transparência e Direitos Autoriais -->
+      <div class="aviso-transparencia">
+        <p>Copyright © 2026 dial88. Todos os direitos reservados. As informações e produtos recomendados pela curadoria
+          dial88 têm foco exclusivo em bem-estar, estilo de vida e qualidade de vida geral, não substituindo avaliações
+          ou aconselhamentos médicos especializados. Os resultados individuais podem variar de pessoa para pessoa.</p>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+
+</html>
