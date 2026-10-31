@@ -57,14 +57,26 @@ body {
     max-width: 40%;
     height: auto;
     margin: 10px;
+    
 }
 
-#logo p {
-    font-size: 0.75rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 900;
+#logo h1 {
+    
+    background-image: var(--detalhe-botao);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent; 
+
+    font-size: 2rem;
     text-align: center;
+
+}
+
+#logo h4 {
+
+    font-size: 1rem;
+    text-align: center;
+
 }
 
 /* Linhas Divisórias (<hr>) */
@@ -178,6 +190,14 @@ body {
     max-width: 1000px;
 }
 
+.container-texto a {
+
+    text-decoration: none;
+    color: #7A5C38;
+    font-weight: 600;
+
+}
+
 /* ==========================================================
    OS TRÊS PILARES
    ========================================================== */
@@ -262,7 +282,7 @@ body {
 .referencias-cientificas h4 {
     font-size: 0.9rem;
     font-weight: 700;
-    color: #072229;
+    
     margin-bottom: 12px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -327,6 +347,30 @@ body {
     margin-bottom: 35px;
     font-weight: 400;
 }
+
+/* 1. Aplique a animação no seu elemento de texto */
+#redefining {
+  
+  animation: flutuar 3s ease-in-out infinite;
+
+}
+
+/* 2. Crie as regras do Keyframe */
+@keyframes flutuar {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px); /* Sobe 10 pixels no meio da animação */
+  }
+  100% {
+    transform: translateY(0px); /* Volta para a posição inicial */
+  }
+}
+
+
+
+
 
 /* ==========================================================
    BOTÕES
@@ -789,8 +833,20 @@ section p {
     }
 
     #logo img {
-        margin-top: 50px;
-        max-width: 100%;
+        margin-top: 5vh;
+        max-width: 80%;
+    }
+
+    #logo h1{
+
+        font-size: 100%;
+
+    }
+
+    #logo h4{
+
+        font-size: 70%;
+
     }
 
     .secao-padrao {
