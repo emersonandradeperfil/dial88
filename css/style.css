@@ -807,8 +807,8 @@ section p {
 }
 
 .bloco-conteudo .imagem img {
-    width: 250px;
-    height: 250px;
+    width: 550px;
+    height: 550px;
     border-radius: 12px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     display: block;
@@ -914,6 +914,13 @@ section p {
     .slider-container{
 
         height: 50vh;
+
+    }
+
+    .bloco-conteudo .imagem img{
+
+        width: 350px;
+    height: 350px;
 
     }
 
