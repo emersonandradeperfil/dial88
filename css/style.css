@@ -105,7 +105,7 @@ section p {
     align-items: center;
     gap: 6px; /* Espaço entre o ícone e a palavra HIM/HER */
     text-decoration: none;
-    font-family: sans-serif; /* Use a fonte do seu site */
+    font-family: var(--font); /* Mesma fonte do site (igual ao page.css) */
     font-weight: bold;
 }
 
