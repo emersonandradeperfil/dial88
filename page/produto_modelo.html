@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- ==========================================================
+     PAGE/PRODUTO_MODELO.HTML  (MODELO de página de produto)
+     Os números [CSS N] dos comentários correspondem às seções
+     numeradas dentro de css/produto.css
+     . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+     COMO USAR ESTE MODELO
+     1. Duplique este arquivo e renomeie (ex.: page/produto_nome.html).
+        Depois aponte o botão da página vitality para o novo nome.
+     2. Ctrl+F > SUBSTITUIR TUDO:
+          NOME_DA_PASTA    -> pasta das fotos do produto (img/produtos/NOME_DA_PASTA/)
+          LINK_DO_PRODUTO  -> link de afiliado/checkout (são 7 botões)
+          [NOME DO PRODUTO] -> nome do produto (aparece em vários textos)
+     3. Troque os demais textos entre [colchetes] e as fotos.
+        Dica: se você nomear as fotos como neste modelo (banner1.jpg,
+        foto1.webp, ingrediente1.webp...), só precisa trocar NOME_DA_PASTA.
+        Se a extensão for outra (.png, .jpg, .webp), ajuste no src.
+     4. Seções de 2 a 10 podem ser REMOVIDAS: apague do comentário
+        "SEÇÃO N" até "FIM DA SEÇÃO N" (a linha <hr> já está dentro do bloco).
+     5. Para mudar a ordem, recorte e cole blocos inteiros.
+     ========================================================== -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Fonte do site: Google Fonts Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Ícones (Font Awesome): check, caminhão, caixa, etc. -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Arquivo de estilos (CSS) desta página (note o "../" porque estamos dentro da pasta page/) -->
+    <link rel="stylesheet" href="../css/produto.css">
+
+    <!-- Ícone da aba do navegador e título da aba -->
+    <link rel="icon" href="../img/icon_dial88.png">
+    <title>dial88® | [NOME DO PRODUTO]</title>
+</head>
+
+<body>
+
+    <!-- ==========================================================
+         CABEÇALHO + MENU  [CSS 3]
+         Barra fixa no topo com HOME, ABOUT, HER e HIM
+         ========================================================== -->
+    <header class="header">
+
+        <nav class="menu">
+            <!-- Links de texto -->
+            <a href="../index.html">HOME</a>
+            <a href="../index.html#sobre">ABOUT</a>
+
+            <!-- Link HER (ícone feminino + texto) -->
+            <a href="../her.html" class="menu-item-genero">
+                <svg class="icon-feminino" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="9" r="5"></circle>
+                    <path d="M12 14V21"></path>
+                    <path d="M9 18H15"></path>
+                </svg>
+                <span>HER</span>
+            </a>
+
+            <!-- Link HIM (ícone masculino + texto) -->
+            <a href="../him.html" class="menu-item-genero">
+                <svg class="icon-masculino" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="10" cy="14" r="5"></circle>
+                    <path d="M19 5L13.5 10.5"></path>
+                    <path d="M14 5H19V10"></path>
+                </svg>
+                <span>HIM</span>
+            </a>
+
+        </nav>
+
+    </header>
+
+    <!-- ==========================================================
+         BANNER DO TOPO (1 foto, sem JS)  [CSS 4]
+         Para trocar a foto, altere o src da <img>
+         ========================================================== -->
+    <section id="topo" class="slider-container carrossel-container">
+        <div class="slide active">
+            <img class="foto_carrossel" src="../img/produtos/NOME_DA_PASTA/banner1.jpg" alt="[NOME DO PRODUTO]">
+        </div>
+    </section>
+
+    <!-- ==========================================================
+         CONTEÚDO PRINCIPAL: cada bloco abaixo é uma SEÇÃO independente
+         ========================================================== -->
+    <main>
+
+        <!-- ==========================================================
+             SEÇÃO 1 - ABERTURA (título + texto + botão, logo abaixo do banner)  [CSS 5 e 6]
+             Pode ser removida: não (é a primeira)
+             ========================================================== -->
+
+        <section class="hero">
+
+            <div class="container-texto">
+
+                <h1>
+                    [Título principal da página]
+                </h1>
+
+                <p>
+                    [Texto de abertura: 2 ou 3 frases apresentando o produto.]
+                </p>
+
+                <a href="LINK_DO_PRODUTO" class="btn-click-here" rel="sponsored noopener">
+                    [TEXTO DO BOTÃO, ex.: CONHEÇA NOME DO PRODUTO]
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- FIM DA SEÇÃO 1 -->
+
+        <!-- ==========================================================
+             SEÇÃO 2 - O QUE É O PRODUTO (foto à esquerda + texto à direita)  [CSS 8]
+             Pode ser removida: sim
+             Ao remover, a linha <hr> logo abaixo deste comentário vai junto (já faz parte do bloco).
+             ========================================================== -->
+
+        <hr class="linha-separadora">
+
+        <section class="produto-hero">
+            <div class="coluna1">
+                <img src="../img/produtos/NOME_DA_PASTA/foto1.webp" alt="[NOME DO PRODUTO]">
+            </div>
+
+            <div class="coluna2">
+                <div class="container-texto">
+                    <h1>[TÍTULO DA SEÇÃO 2 - ex.: O QUE É NOME DO PRODUTO?]</h1>
+                    <h2>[Subtítulo da seção 2]</h2>
+
+                    <p>
+                        [Parágrafo 1 da seção 2.]
+                    </p>
+                    <p>
+                        [Parágrafo 2 da seção 2.]
+                    </p>
+
+                    <a href="LINK_DO_PRODUTO" class="btn-click-here" rel="sponsored noopener">
+                        [TEXTO DO BOTÃO, ex.: CONHEÇA NOME DO PRODUTO]
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FIM DA SEÇÃO 2 -->
+
+        <!-- ==========================================================
+             SEÇÃO 3 - INGREDIENTES / COMPONENTES (cards com foto em hexágono)  [CSS 9]
+             Pode ser removida: sim
+             Cada card = 1 foto + 1 nome + 1 texto. Pode ter 4 ou 8 cards (linhas completas ficam melhores).
+             ========================================================== -->
+
+        <hr class="linha-separadora">
+
+        <section class="produto-hero">
+
+            <div class="container-texto">
+                <h1>[Título da seção de ingredientes]</h1>
+                <h2>[Subtítulo da seção de ingredientes]</h2>
+            </div>
+
+            <section class="ingredientes-section">
+                <div class="grid-cards">
+
+                    <!-- Ingrediente 1 -->
+                    <div class="ingrediente">
+                        <div class="img-hex-container">
+                            <img src="../img/produtos/NOME_DA_PASTA/ingrediente1.webp" alt="[Nome do ingrediente 1]">
+                        </div>
+                        <h3>[Nome do ingrediente 1]</h3>
+                        <p>
+                            [Texto curto sobre o ingrediente 1.]
+                        </p>
+                    </div>
+
+                    <!-- Ingrediente 2 -->
+                    <div class="ingrediente">
+                        <div class="img-hex-container">
+                            <img src="../img/produtos/NOME_DA_PASTA/ingrediente2.webp" alt="[Nome do ingrediente 2]">
+                        </div>
+                        <h3>[Nome do ingrediente 2]</h3>
+                        <p>
+                            [Texto curto sobre o ingrediente 2.]
+                        </p>
+                    </div>
+
+                    <!-- Ingrediente 3 -->
+                    <div class="ingrediente">
+                        <div class="img-hex-container">
+                            <img src="../img/produtos/NOME_DA_PASTA/ingrediente3.webp" alt="[Nome do ingrediente 3]">
+                        </div>
+                        <h3>[Nome do ingrediente 3]</h3>
+                        <p>
+                            [Texto curto sobre o ingrediente 3.]
+                        </p>
+                    </div>
+
+                    <!-- Ingrediente 4 -->
+                    <div class="ingrediente">
+                        <div class="img-hex-container">
+                            <img src="../img/produtos/NOME_DA_PASTA/ingrediente4.webp" alt="[Nome do ingrediente 4]">
+                        </div>
+                        <h3>[Nome do ingrediente 4]</h3>
+                        <p>
+                            [Texto curto sobre o ingrediente 4.]
+                        </p>
+                    </div>
+
+                    <!-- Para ADICIONAR outro card: copie um bloco <div class="ingrediente"> inteiro e cole logo abaixo. Para REMOVER: apague o bloco inteiro. -->
+
+                </div>
+            </section>
+
+        </section>
+
+        <!-- FIM DA SEÇÃO 3 -->
+
+        <!-- ==========================================================
+             SEÇÃO 4 - POR QUE CONHECER O PRODUTO (foto larga + 3 vantagens com ícone de check)  [CSS 9 e 10]
+             Pode ser removida: sim
+             ========================================================== -->
+
+        <hr class="linha-separadora">
+
+        <section class="produto-hero">
+
+            <div class="container-texto">
+                <h1>[TÍTULO DA SEÇÃO 4]</h1>
+                <h2>[Subtítulo da seção 4]</h2>
+                <p>
+                    [Texto introdutório da seção 4.]
+                </p>
+
+            </div>
+
+            <!-- Foto larga (ocupa quase toda a largura da tela). alt vazio = foto decorativa -->
+            <img class="img-faixa" src="../img/produtos/NOME_DA_PASTA/foto2.webp" alt="">
+
+            <section class="ingredientes-section">
+                <div class="grid-cards">
+
+                    <!-- Vantagem 1 -->
+                    <div class="ingrediente">
+                        <div class="icon-box">
+                            <i class="fas fa-check"></i> <!-- Ícone de check -->
+                        </div>
+                        <h3>[Vantagem 1]</h3>
+                        <p>
+                            [Texto curto da vantagem 1.]
+                        </p>
+                    </div>
+
+                    <!-- Vantagem 2 -->
+                    <div class="ingrediente">
+                        <div class="icon-box">
+                            <i class="fas fa-check"></i> <!-- Ícone de check -->
+                        </div>
+                        <h3>[Vantagem 2]</h3>
+                        <p>
+                            [Texto curto da vantagem 2.]
+                        </p>
+                    </div>
+
+                    <!-- Vantagem 3 -->
+                    <div class="ingrediente">
+                        <div class="icon-box">
+                            <i class="fas fa-check"></i> <!-- Ícone de check -->
+                        </div>
+                        <h3>[Vantagem 3]</h3>
+                        <p>
+                            [Texto curto da vantagem 3.]
+                        </p>
+                    </div>
+
+                    <a href="LINK_DO_PRODUTO" class="btn-click-here" rel="sponsored noopener">
+                        [TEXTO DO BOTÃO, ex.: CONHEÇA NOME DO PRODUTO]
+                    </a>
+
+                </div>
+            </section>
+
+        </section>
+
+        <!-- FIM DA SEÇÃO 4 -->
+
+        <!-- ==========================================================
+             SEÇÃO 5 - COMO ENCAIXA NA ROTINA (texto + lista numerada à esquerda, foto à direita)  [CSS 8 e 11]
+             Pode ser removida: sim
+             ========================================================== -->
+
+        <hr class="linha-separadora">
+
+        <section class="produto-hero espacado">
+
+            <div class="coluna2">
+                <div class="container-texto">
+                    <h1>[TÍTULO DA SEÇÃO 5]</h1>
+                    <h2>[Subtítulo da seção 5]</h2>
+                    <br>
+                    <p>
+                        [Frase de introdução da lista numerada.]
+                    </p>
+                    <ol>
+                        <li>[Item 1 da lista.]</li>
+                        <li>[Item 2 da lista.]</li>
+                        <li>[Item 3 da lista.]</li>
+                        <li>[Item 4 da lista.]</li>
+                        <li>[Item 5 da lista.]</li>
+                    </ol>
+
+                    <a href="LINK_DO_PRODUTO" class="btn-click-here" rel="sponsored noopener">
+                        [TEXTO DO BOTÃO, ex.: CONHEÇA NOME DO PRODUTO]
+                    </a>
+                </div>
+            </div>
+
+            <div class="coluna1">
+                <img class="img-altura-fixa" src="../img/produtos/NOME_DA_PASTA/foto3.jpg" alt="[NOME DO PRODUTO]">
+            </div>
+
+        </section>
+
+        <!-- FIM DA SEÇÃO 5 -->
+
+        <!-- ==========================================================
+             SEÇÃO 6 - INFORMAÇÕES DO PRODUTO (6 tópicos em 3 colunas, com ícones)  [CSS 9]
+             Pode ser removida: sim
+             Ícones: https://fontawesome.com/search?o=r&m=free  (copie a classe, ex.: "fa-solid fa-truck-fast")
+             ========================================================== -->
+
+        <hr class="linha-separadora">
+
+        <section class="produto-hero">
+
+            <div class="container-texto">
+                <h1>[TÍTULO DA SEÇÃO 6 - ex.: PRODUCT INFORMATION]</h1>
+                <h2>[Subtítulo da seção 6]</h2>
+                <p>
+                    [Frase de introdução dos tópicos.]
+                </p>
+            </div>
+
+            <section class="ingredientes-section">
+                <div class="grid-topicos">
+
+                    <div class="ingrediente">
+                        <div class="icon-box">
+                            <i class="fa-solid fa-p"></i>
+                        </div>
+                        <h3>[Tópico 1]</h3>
+                        <p>
+                            [Texto curto do tópico 1.]
+                        </p>
+                    </div>
+
+                    <div class="ingrediente">
+                        <div class="icon-box">
+                            <i class="fa-solid fa-file-lines"></i>
+                        </div>
+                        <h3>[Tópico 2]</h3>
+                        <p>
+                            [Texto curto do tópico 2.]
+                        </p>
+                    </div>
+
+                    <div class="ingrediente">
+                        <div class="icon-box">
+                            <i class="fa-solid fa-box-open"></i>
+                        </div>
+                        <h3>[Tópico 3]</h3>
+                        <p>
+                            [Texto curto do tópico 3.]
+                        </p>
+                    </div>
+
+                    <div class="ingrediente">
+                        <div class="icon-box">
+                            <i class="fa-solid fa-truck-fast"></i>
+                        </div>
+                        <h3>[Tópico 4]</h3>
+                        <p>
+                            [Texto curto do tópico 4.]
+                        </p>
+                    </div>
+
+                    <div class="ingrediente">
+                        <div class="icon-box">
+                            <i class="fa-solid fa-stopwatch"></i>
+                        </div>
+                        <h3>[Tópico 5]</h3>
+                        <p>
+                            [Texto curto do tópico 5.]
+                        </p>
+                    </div>
+
+                    <div class="ingrediente">
+                        <div class="icon-box">
+                            <i class="fa-regular fa-comments"></i>
+                        </div>
+                        <h3>[Tópico 6]</h3>
+                        <p>
+                            [Texto curto do tópico 6.]
+                        </p>
+                    </div>
+
+                </div>
+            </section>
+
+            <div class="container-texto">
+                <h2>[Frase de destaque ao final da seção 6.]</h2>
+            </div>
+
+            <a href="LINK_DO_PRODUTO" class="btn-click-here" rel="sponsored noopener">
+                [TEXTO DO BOTÃO, ex.: CONHEÇA NOME DO PRODUTO]
+            </a>
+
+        </section>
+
+        <!-- FIM DA SEÇÃO 6 -->
+
+        <!-- ==========================================================
+             SEÇÃO 7 - ESTE PRODUTO É PARA VOCÊ? (foto à esquerda + texto à direita)  [CSS 8]
+             Pode ser removida: sim
+             ========================================================== -->
+
+        <hr class="linha-separadora">
+
+        <section class="produto-hero">
+            <div class="coluna1">
+                <img src="../img/produtos/NOME_DA_PASTA/foto4.png" alt="[NOME DO PRODUTO]">
+            </div>
+
+            <div class="coluna2">
+                <div class="container-texto">
+                    <h1>[TÍTULO DA SEÇÃO 7]</h1>
+                    <h2>[Subtítulo da seção 7]</h2>
+
+                    <p>
+                        [Texto da seção 7.]
+                    </p>
+
+                    <a href="LINK_DO_PRODUTO" class="btn-click-here" rel="sponsored noopener">
+                        [TEXTO DO BOTÃO, ex.: CONHEÇA NOME DO PRODUTO]
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FIM DA SEÇÃO 7 -->
+
+        <!-- ==========================================================
+             SEÇÃO 8 - FAQ - PERGUNTAS FREQUENTES (clicar abre/fecha a resposta)  [CSS 12]
+             Pode ser removida: sim
+             Para adicionar outra pergunta, copie um bloco <details> inteiro. Todas usam o ícone "fa-plus".
+             ========================================================== -->
+
+        <hr class="linha-separadora">
+
+        <section class="faq-section">
+            <div class="faq-container">
+                <h2>Frequently Asked Questions</h2>
+
+                <!-- Pergunta 1 (aberta por padrão, por causa do atributo "open") -->
+                <details class="faq-item" open>
+                    <summary class="faq-question">
+                        <span>[Pergunta 1?]</span>
+                        <i class="fa-solid fa-plus icon-toggle"></i>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>
+                            [Resposta da pergunta 1.]
+                        </p>
+                    </div>
+                </details>
+
+                <!-- Pergunta 2 -->
+                <details class="faq-item">
+                    <summary class="faq-question">
+                        <span>[Pergunta 2?]</span>
+                        <i class="fa-solid fa-plus icon-toggle"></i>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>
+                            [Resposta da pergunta 2.]
+                        </p>
+                    </div>
+                </details>
+
+                <!-- Pergunta 3 -->
+                <details class="faq-item">
+                    <summary class="faq-question">
+                        <span>[Pergunta 3?]</span>
+                        <i class="fa-solid fa-plus icon-toggle"></i>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>
+                            [Resposta da pergunta 3.]
+                        </p>
+                    </div>
+                </details>
+
+            </div>
+        </section>
+
+        <!-- FIM DA SEÇÃO 8 -->
+
+        <!-- ==========================================================
+             SEÇÃO 9 - FECHAMENTO (texto à esquerda + foto à direita)  [CSS 8]
+             Pode ser removida: sim
+             ========================================================== -->
+
+        <hr class="linha-separadora">
+
+        <section class="produto-hero">
+
+            <div class="coluna2">
+                <div class="container-texto">
+                    <h1>[TÍTULO DA SEÇÃO 9]</h1>
+                    <h2>[Subtítulo da seção 9]</h2>
+
+                    <p>
+                        [Texto da seção 9.]
+                    </p>
+
+                    <a href="LINK_DO_PRODUTO" class="btn-click-here" rel="sponsored noopener">
+                        [TEXTO DO BOTÃO, ex.: CONHEÇA NOME DO PRODUTO]
+                    </a>
+                </div>
+            </div>
+
+            <div class="coluna1">
+                <img src="../img/produtos/NOME_DA_PASTA/foto5.png" alt="[NOME DO PRODUTO]">
+            </div>
+
+        </section>
+
+        <!-- FIM DA SEÇÃO 9 -->
+
+        <!-- ==========================================================
+             SEÇÃO 10 - FOTO DE ENCERRAMENTO (largura total, logo antes do rodapé)  [CSS 10]
+             Pode ser removida: sim
+             ========================================================== -->
+
+        <img class="img-rodape" src="../img/produtos/NOME_DA_PASTA/rodape.webp" alt="">
+
+    </main>
+
+    <!-- ==========================================================
+         BOTÃO FLUTUANTE "dial88®"  [CSS 13]
+         Fixo no canto inferior direito; leva para o ABOUT do index
+         ========================================================== -->
+    <a href="../index.html#sobre" class="btn-flutuante" aria-label="About dial88">
+        <span>dial88®</span>
+    </a>
+
+    <!-- ==========================================================
+         RODAPÉ INSTITUCIONAL  [CSS 14]
+         ========================================================== -->
+    <footer class="rodape">
+        <div class="container-rodape">
+
+            <!-- Links institucionais -->
+            <nav class="links-rodape">
+                <a href="#">Privacy Policy</a>
+                <span class="divisor">|</span>
+                <a href="#">Terms of Use</a>
+                <span class="divisor">|</span>
+                <a href="#">Track Order</a>
+                <span class="divisor">|</span>
+                <a href="#">Customer Service</a>
+            </nav>
+
+            <!-- RECOMENDADO em páginas com link de afiliado: deixe um aviso visível, por exemplo
+                 (remova os marcadores de comentário para ativar):
+            <p>Disclosure: This page contains affiliate links. dial88 may earn a commission if you purchase through them, at no extra cost to you.</p>
+            -->
+
+            <!-- Aviso de transparência e direitos autorais -->
+            <div class="aviso-transparencia">
+                <p>Copyright © 2026 dial88. All rights reserved.</p>
+                <p>The content and selections presented by the dial88 curation team are intended solely for general well-being and lifestyle guidance. They do not constitute, nor should they substitute for, professional medical advice, diagnosis, or treatment. Always consult with a qualified healthcare professional regarding your personal physical routine.</p>
+                <br>
+                <p>FDA Disclaimer: These statements have not been evaluated by the Food and Drug Administration. The items and selections featured on this platform are not intended to diagnose, treat, cure, or prevent any disease.</p>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+
+</html>
