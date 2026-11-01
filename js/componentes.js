@@ -28,5 +28,6 @@ function carregarComponente(idContainer, nomeArquivo) {
 // Executa e carrega o cabeçalho e o rodapé juntos assim que a página abre
 window.onload = function() {
     carregarComponente('header-container', 'header.html');
+    carregarComponente('elements-container', 'elements.html');
     carregarComponente('footer-container', 'footer.html');
 };
