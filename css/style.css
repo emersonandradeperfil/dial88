@@ -1,18 +1,42 @@
 /* ==========================================================
-   VARIÁVEIS / DESIGN SYSTEM
+   ÍNDICE (segue a ordem em que as coisas aparecem no HTML)
+   ----------------------------------------------------------
+    1. Variáveis (cores, fonte)
+    2. Reset global, body e parágrafos de <section>
+    3. Cabeçalho e menu                  (todas as páginas)
+    4. Logo + título de abertura         (index)
+    5. Seções padrão: hero, sobre        (index)
+    6. Botão principal "btn-click-here"  (hero, CTA, carrossel)
+    7. Linha divisória <hr>              (todas as páginas)
+    8. Três pilares                      (index)
+    9. CTA - chamada para ação           (index)
+   10. Referências / bibliografia        (index)
+   11. Carrossel                         (her / him)
+   12. Blocos alternados texto + imagem  (her / him)
+   13. Botão flutuante                   (todas as páginas)
+   14. Modal do catálogo                 (index)
+   15. Rodapé                            (todas as páginas)
+   16. Responsivo (celular)              (sempre por último!)
+   ========================================================== */
+
+
+/* ==========================================================
+   1. VARIÁVEIS / DESIGN SYSTEM
+   Mude aqui para trocar cor de texto, fundo e fonte do site todo
    ========================================================== */
 :root {
     --texto: #4A4643;
     --fundo: #F5F3EE;
-    
+
     --detalhe-botao: linear-gradient(90deg, #7A5C38 0%, #D8C2A3 50%, #7A5C38 100%);
     --detalhe-botao-hover: linear-gradient(90deg, #654B2E 0%, #B8A180 50%, #654B2E 100%);
-    
+
     --font: 'Montserrat', sans-serif;
 }
 
+
 /* ==========================================================
-   RESET GLOBAL
+   2. RESET GLOBAL, BODY E PARÁGRAFOS
    ========================================================== */
 * {
     margin: 0;
@@ -27,22 +51,81 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+/* Todo <p> dentro de qualquer <section> fica justificado */
+section p {
+    text-align: justify;
+}
+
+
 /* ==========================================================
-   CABEÇALHO & LOGO
+   3. CABEÇALHO E MENU  (<header class="header">)
    ========================================================== */
 
+/* Barra do topo que "gruda" na tela ao rolar */
 .header {
     position: sticky;  /* Torna o cabeçalho "grudento" */
     top: 0;            /* Cola no topo da janela assim que rolar */
     z-index: 1000;     /* Garante que fique acima de todo o conteúdo ao passar por cima */
     background-color: var(--fundo); /* Importante para não deixar o texto de fundo vazar por trás */
-    
+
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 25px 20px 10px 20px;
 
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Menu (<nav class="menu">) */
+.menu {
+    display: flex;
+    gap: 10%;
+    padding: 5px 0;
+    width: 100%;
+    justify-content: center;
+}
+
+/* Links do menu: HOME, ABOUT, HER, HIM */
+.menu a {
+    text-decoration: none;
+    color: var(--texto);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: opacity 0.2s ease;
+}
+
+.menu a:hover {
+    opacity: 0.6;
+}
+
+/* Links HER / HIM (ícone + palavra) */
+.menu-item-genero {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px; /* Espaço entre o ícone e a palavra HIM/HER */
+    text-decoration: none;
+    font-family: sans-serif; /* Use a fonte do seu site */
+    font-weight: bold;
+}
+
+/* Tamanho e cor dos ícones SVG do menu */
+.menu-item-genero svg {
+    width: 18px;  /* Ajuste aqui se quiser o ícone maior ou menor */
+    height: 18px; /* Mantenha igual à largura */
+    stroke: currentColor; /* Faz o ícone herdar a cor do texto automaticamente */
+}
+
+
+/* ==========================================================
+   4. LOGO + TÍTULO DE ABERTURA  (<div id="logo"> no index)
+   ========================================================== */
+
+/* Contêiner pai (<main>): empilha as seções na vertical */
+.conteudo-principal {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 #logo {
@@ -57,96 +140,31 @@ body {
     max-width: 40%;
     height: auto;
     margin: 10px;
-    
 }
 
+/* "OFFICIAL LICENSED MERCHANDISE" (texto com degradê dourado) */
 #logo h1 {
-    
     background-image: var(--detalhe-botao);
     -webkit-background-clip: text;
     background-clip: text;
-    -webkit-text-fill-color: transparent; 
+    -webkit-text-fill-color: transparent;
 
     font-size: 2rem;
     text-align: center;
-
 }
 
+/* "A CAREFUL, SMART, AND QUALIFIED CHOICE" */
 #logo h4 {
-
     font-size: 1rem;
     text-align: center;
-
 }
 
-/* Linhas Divisórias (<hr>) */
-.linha-separadora {
-    width: 100%;
-    max-width: 1200px;
-    height: 1px;
-    background-color: rgba(74, 70, 67, 0.15);
-    border: none;
-    margin: 12px auto; /* Centrado com auto nas laterais */
-}
-
-/* Menu */
-.menu {
-    display: flex;
-    gap: 10%;
-    padding: 5px 0;
-    width: 100%;
-    justify-content: center;
-    
-}
-
-.menu a {
-    text-decoration: none;
-    color: var(--texto);
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-    transition: opacity 0.2s ease;
-}
-
-.menu a:hover {
-    opacity: 0.6;
-}
-
-.menu-suplementos {
-  display: flex;
-  align-items: center;
-  gap: 24px; /* Espaçamento entre os botões do menu */
-}
-
-/* Estiliza os botões que têm ícone + palavra */
-.menu-item-genero {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px; /* Espaço entre o ícone e a palavra HIM/HER */
-  text-decoration: none;
-  font-family: sans-serif; /* Use a fonte do seu site */
-  font-weight: bold;
-}
-
-/* Controla o tamanho exato e a cor dos vetores */
-.menu-item-genero svg {
-  width: 18px;  /* Ajuste aqui se quiser o ícone maior ou menor */
-  height: 18px; /* Mantenha igual à largura */
-  stroke: currentColor; /* Faz o ícone herdar a cor do texto automaticamente */
-}
 
 /* ==========================================================
-   CONTEÚDO PRINCIPAL (MÚLTIPLAS SEÇÕES)
+   5. SEÇÕES PADRÃO  (hero e "about us" no index)
    ========================================================== */
 
-/* Contêiner Pai (<main>): Empilha as seções na vertical */
-.conteudo-principal {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-/* Classe Reutilizável para TODA nova <section> */
+/* Classe reutilizável para TODA nova <section> */
 .secao-padrao {
     display: flex;
     justify-content: center;
@@ -165,7 +183,7 @@ body {
     gap: 24px;
 }
 
-/* Estilos de Títulos */
+/* Títulos dentro das seções */
 .container-texto h1 {
     font-size: 2.2rem;
     font-weight: 800;
@@ -181,7 +199,7 @@ body {
     text-transform: uppercase;
 }
 
-/* Estilos dos Parágrafos das Seções */
+/* Parágrafos das seções */
 .container-texto p {
     font-size: 0.95rem;
     line-height: 1.6;
@@ -190,41 +208,94 @@ body {
     max-width: 1000px;
 }
 
+/* Links dentro do texto (as palavras em marrom do "about us") */
 .container-texto a {
-
     text-decoration: none;
     color: #7A5C38;
     font-weight: 600;
-
 }
+
+/* --- Hero: título "REDEFINING WELL-BEING" flutuando --- */
+
+/* 1. Aplica a animação no elemento de texto */
+#redefining {
+    animation: flutuar 3s ease-in-out infinite;
+}
+
+/* 2. Regras do keyframe */
+@keyframes flutuar {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px); /* Sobe 10 pixels no meio da animação */
+    }
+    100% {
+        transform: translateY(0px); /* Volta para a posição inicial */
+    }
+}
+
 
 /* ==========================================================
-   OS TRÊS PILARES
+   6. BOTÃO PRINCIPAL "btn-click-here"
+   Usado em: hero (index), CTA (index) e botão VIEW do carrossel (her/him)
    ========================================================== */
+.btn-click-here {
+    display: inline-block;
+    color: #ffffff;
+    padding: 20px 40px;
+    border-radius: 25px;
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 
-   .secao-pilares {
+    /* Gradiente estendido idêntico ao do botão flutuante */
+    background: linear-gradient(135deg, #072229 0%, #10373d 35%, white 50%, #10373d 65%, #072229 100%);
+    background-size: 250% auto;
+
+    /* Aplica a animação contínua de brilho */
+    animation: brilhoGradiente 4s ease infinite;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-click-here:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+    background: linear-gradient(135deg, #7A5C38 0%, #A38257 35%, white 50%, #A38257 65%, #7A5C38 100%);
+    background-size: 250% auto;
+}
+
+/* Animação de brilho (também usada pelo botão flutuante, seção 13) */
+@keyframes brilhoGradiente {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%; /* Desloca o gradiente para o outro lado */
+    }
+    100% {
+        background-position: 0% 50%; /* Retorna ao início de forma cíclica e suave */
+    }
+}
+
+
+/* ==========================================================
+   7. LINHA DIVISÓRIA  (<hr class="linha-separadora">)
+   ========================================================== */
+.linha-separadora {
     width: 100%;
-    padding: 80px 20px;
-    background-color: #F3EFE6; /* Tom base caso a imagem não carregue */
+    max-width: 1200px;
+    height: 1px;
+    background-color: rgba(74, 70, 67, 0.15);
+    border: none;
+    margin: 12px auto; /* Centrado com auto nas laterais */
 }
 
-.container-pilares {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-}
 
-.container-pilares h2 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: -0.3px;
-    text-align: center;
-    color: var(--texto);
-}
+/* ==========================================================
+   8. OS TRÊS PILARES  (index)
+   ========================================================== */
 
 /* Organiza os pilares lado a lado (Flexbox) */
 .grid-pilares {
@@ -268,50 +339,9 @@ body {
     font-weight: 400;
 }
 
-/* ==========================================================
-   SEÇÃO DE REFERÊNCIAS CIENTÍFICAS
-   ========================================================== */
-.referencias-cientificas {
-    max-width: 100%;
-    /* background-color: #072229; */
-    padding: 1% 15%;
-    font-size: 0.8rem;
-    color: #666;
-}
-
-.referencias-cientificas h4 {
-    font-size: 0.9rem;
-    font-weight: 700;
-    
-    margin-bottom: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.referencias-cientificas ol {
-    padding-left: 18px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.referencias-cientificas li {
-    line-height: 1.5;
-}
-
-/* Estilo para links de referência no texto */
-.link-referencia {
-    color: #7A5C38;
-    text-decoration: underline;
-    font-weight: 500;
-}
-
-.link-referencia:hover {
-    color: #072229;
-}
 
 /* ==========================================================
-   ÁREA DE CHAMADA PARA AÇÃO (CTA)
+   9. ÁREA DE CHAMADA PARA AÇÃO (CTA)  (index)
    ========================================================== */
 .secao-cta {
     width: 100%;
@@ -330,6 +360,7 @@ body {
     align-items: center;
 }
 
+/* "INVEST IN YOUR BALANCE" */
 .cta-titulo {
     font-size: 1.65rem;
     font-weight: 700;
@@ -338,6 +369,7 @@ body {
     margin-bottom: 20px;
 }
 
+/* "Click the button below..." */
 .cta-subtitulo {
     font-size: 0.95rem;
     font-style: italic;
@@ -348,189 +380,101 @@ body {
     font-weight: 400;
 }
 
-/* 1. Aplique a animação no seu elemento de texto */
-#redefining {
-  
-  animation: flutuar 3s ease-in-out infinite;
 
+/* ==========================================================
+   10. REFERÊNCIAS CIENTÍFICAS / BIBLIOGRAFIA  (index)
+   ========================================================== */
+.referencias-cientificas {
+    max-width: 100%;
+    /* background-color: #072229; */
+    padding: 1% 15%;
+    font-size: 0.8rem;
+    color: #666;
 }
 
-/* 2. Crie as regras do Keyframe */
-@keyframes flutuar {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px); /* Sobe 10 pixels no meio da animação */
-  }
-  100% {
-    transform: translateY(0px); /* Volta para a posição inicial */
-  }
+.referencias-cientificas h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-
-
+.referencias-cientificas li {
+    line-height: 1.5;
+}
 
 
 /* ==========================================================
-   BOTÕES
+   11. CARROSSEL  (her.html e him.html)
    ========================================================== */
 
-   /* Botão inicial */
-.btn-acao {
-    
-    display: inline-block;
-    background: var(--detalhe-botao);
-    color: white;
-    text-decoration: none;
-    padding: 14px 32px;
-    border-radius: 30px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    margin-top: 10px;
-    transform: scale(1);
-    transition: transform 0.2s ease-in-out;
-    box-shadow: 0 8px 25px rgba(122, 92, 56, 0.25);
-    text-transform: uppercase;
-
+/* Caixa do carrossel (ocupa 70% da altura da tela) */
+.slider-container {
+    /* margin-top: 50px; */
+    width: 100%;
+    height: 70vh;
+    overflow: hidden;
+    position: relative; /* Mantém tudo preso dentro do container */
 }
 
-/* Botão de chamada */
-.btn-cta {
-
-    display: inline-block;
-    background: var(--detalhe-botao);
-    color: white;
-    text-decoration: none;
-    padding: 14px 32px;
-    border-radius: 30px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    margin-top: 10px;
-    transform: scale(1);
-    transition: transform 0.2s ease-in-out;
-    box-shadow: 0 8px 25px rgba(122, 92, 56, 0.25);
-    text-transform: uppercase;
-
+/* Cada slide fica empilhado; só o .active aparece */
+.slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
 }
 
-/* Hover botão inicial */
-.btn-acao:hover {
-    background: var(--detalhe-botao-hover);
-    filter: brightness(1.05);
-    transform: translateY(-3px);
+.slide.active {
+    display: block;
+    opacity: 1;
 }
 
-/* Hover botão de chamada */
-.btn-cta:hover {
-    background: var(--detalhe-botao-hover);
-    transform: translateY(-3px);
-    box-shadow: 0 12px 30px rgba(122, 92, 56, 0.35);
+/* Foto do slide */
+.slide img, .foto_carrossel {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
 }
 
-.btn-flutuante {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    z-index: 9999;
-    
+/* Texto no centro da foto (ex.: "VITALITY & WELL-BEING") */
+.indice-carrossel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    text-align: center;
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 10px;
-    
-    /* Gradiente estendido para permitir a animação de movimento */
-    background: linear-gradient(135deg, #7A5C38 0%, #A38257 35%, white 50%, #A38257 65%, #7A5C38 100%);
-    background-size: 250% auto; /* Deixa o fundo maior que o botão para podermos movimentá-lo */
-    
-    color: #FFFFFF;
-    text-decoration: none;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    
-    padding: 12px 20px;
-    border-radius: 50px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-    
-    /* Aplica a animação contínua de brilho */
-    animation: brilhoGradiente 4s ease infinite;
-    
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    z-index: 5;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 32px;
+    font-weight: 900;
 }
 
-.btn-flutuante:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+/* Área do botão "VIEW" em cima da imagem (canto inferior direito) */
+.card-overlay {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: right;
+    margin-right: 20px;
+    z-index: 5;
 }
 
-.btn-click-here {
-    display: inline-block;
-    color: #ffffff;
-    padding: 20px 40px;
-    border-radius: 25px;
-    font-size: 25px;
-    font-weight: bold;
-    text-decoration: none;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-    
-    /* Gradiente estendido idêntico ao do botão flutuante */
-    background: linear-gradient(135deg, #072229 0%, #10373d 35%, white 50%, #10373d 65%, #072229 100%);
-    background-size: 250% auto;
-    
-    /* Aplica a mesma animação contínua */
-    animation: brilhoGradiente 4s ease infinite;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.btn-click-here:hover {
-    transform: scale(1.08);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
-    background: linear-gradient(135deg, #7A5C38 0%, #A38257 35%, white 50%, #A38257 65%, #7A5C38 100%);
-    background-size: 250% auto;
-}
-
-@keyframes brilhoGradiente {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%; /* Desloca o gradiente para o outro lado */
-    }
-    100% {
-        background-position: 0% 50%; /* Retorna ao início de forma cíclica e suave */
-    }
-}
-
-.btn-click-here-sg {
-    display: inline-block;
-    color: #ffffff;
-    padding: 12px 24px;
-    border-radius: 25px;
-    font-size: 16px;
-    font-weight: bold;
-    text-decoration: none;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-    
-    /* Gradiente estendido idêntico ao do botão flutuante */
-    background-color: #072229;
-    /* background-size: 250% auto; */
-    
-    /* Aplica a mesma animação contínua */
-    /* animation: brilhoGradiente 4s ease infinite;
-    transition: transform 0.2s ease, box-shadow 0.2s ease; */
-}
-
-.btn-click-here-sg:hover {
-    transform: scale(1.08);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
-    background-color: #7A5C38;
-    
-}
-
-/* --- Botões de Navegação (Setas) --- */
+/* Botões de navegação (setas < >) */
 .carrossel-btn {
     position: absolute;
     top: 50%;
@@ -555,105 +499,236 @@ body {
     transform: translateY(-50%) scale(1.1);
 }
 
-.carrossel-btn.prev { 
+.carrossel-btn.prev {
     left: 20px; /* Posiciona a seta na esquerda dentro da foto */
 }
 
-.carrossel-btn.next { 
+.carrossel-btn.next {
     right: 20px; /* Posiciona a seta na direita dentro da foto */
 }
 
-/* --- O Dialog (Fundo Escurecido) --- */
+
+/* ==========================================================
+   12. BLOCOS ALTERNADOS TEXTO + IMAGEM  (her.html e him.html)
+   ========================================================== */
+
+/* Container geral da seção */
+.secao-alternada {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+/* Cada linha de conteúdo (texto + imagem) */
+.bloco-conteudo {
+    display: flex;
+    align-items: center; /* Alinha verticalmente ao centro */
+    justify-content: space-between;
+    gap: 40px; /* Espaço entre o texto e a imagem */
+    margin: 40px 0;
+}
+
+/* Inverte a ordem (imagem à esquerda, texto à direita) */
+.bloco-conteudo.inverter {
+    flex-direction: row-reverse;
+}
+
+/* Lado do texto */
+.bloco-conteudo .texto {
+    flex: 1; /* Ocupa o espaço proporcional */
+}
+
+.bloco-conteudo .texto h2 {
+    font-size: 2rem;
+    color: #072229; /* Usando aquela sua cor base elegante! */
+    margin-bottom: 15px;
+}
+
+.bloco-conteudo .texto p {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+/* Lado da imagem */
+.bloco-conteudo .imagem {
+    flex: 1;
+}
+
+.bloco-conteudo .imagem img {
+    width: 550px;
+    height: 550px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    display: block;
+    object-fit: cover;
+}
+
+/* Botão "LEARN MORE" (versão simples, sem animação) */
+.btn-click-here-sg {
+    display: inline-block;
+    color: #ffffff;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+
+    /* Gradiente estendido idêntico ao do botão flutuante */
+    background-color: #072229;
+    /* background-size: 250% auto; */
+
+    /* Aplica a mesma animação contínua */
+    /* animation: brilhoGradiente 4s ease infinite;
+    transition: transform 0.2s ease, box-shadow 0.2s ease; */
+}
+
+.btn-click-here-sg:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+    background-color: #7A5C38;
+}
+
+
+/* ==========================================================
+   13. BOTÃO FLUTUANTE  (canto inferior direito, todas as páginas)
+   ========================================================== */
+.btn-flutuante {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    /* Gradiente estendido para permitir a animação de movimento */
+    background: linear-gradient(135deg, #7A5C38 0%, #A38257 35%, white 50%, #A38257 65%, #7A5C38 100%);
+    background-size: 250% auto; /* Deixa o fundo maior que o botão para podermos movimentá-lo */
+
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+
+    padding: 12px 20px;
+    border-radius: 50px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+
+    /* Aplica a animação contínua de brilho (keyframes na seção 6) */
+    animation: brilhoGradiente 4s ease infinite;
+
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.btn-flutuante:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+
+/* ==========================================================
+   14. MODAL DO CATÁLOGO  (index: escolher HER / HIM)
+   ========================================================== */
+
+/* Fundo escurecido */
 .catalog-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4); /* Fundo semi-transparente */
-  backdrop-filter: blur(4px); /* Efeito borrado de fundo premium */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Fundo semi-transparente */
+    backdrop-filter: blur(4px); /* Efeito borrado de fundo premium */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
 }
 
-/* Quando o dialog estiver ativo */
+/* Quando o dialog estiver ativo (classe adicionada pelo JS) */
 .catalog-overlay.active {
-  opacity: 1;
-  pointer-events: auto;
+    opacity: 1;
+    pointer-events: auto;
 }
 
-/* --- Caixa do Modal --- */
+/* Caixa branca do modal */
 .catalog-modal {
-  background: #fff;
-  padding: 40px 32px;
-  border-radius: 12px;
-  width: 90%;
-  max-width: 400px;
-  text-align: center;
-  position: relative;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    background: #fff;
+    padding: 40px 32px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .catalog-modal h3 {
-  font-family: sans-serif;
-  margin-top: 0;
-  margin-bottom: 24px;
-  text-transform: uppercase;
-  font-size: 16px;
-  letter-spacing: 1px;
+    font-family: sans-serif;
+    margin-top: 0;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: 1px;
 }
 
-/* Botão de Fechar (X) */
+/* Botão de fechar (X) */
 .close-modal {
-  position: absolute;
-  top: 16px;
-  right: 20px;
-  background: none;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-  color: #999;
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #999;
 }
 
-/* --- Grid de Opções (HIM / HER) --- */
+/* Grid de opções (HER / HIM) */
 .catalog-options {
-  display: flex;
-  gap: 16px;
+    display: flex;
+    gap: 16px;
 }
 
 .catalog-card {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  padding: 24px;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  text-decoration: none;
-  color: #000;
-  font-weight: bold;
-  transition: all 0.2s ease;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 24px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    transition: all 0.2s ease;
 }
 
 .catalog-card:hover {
-  border-color: #000;
-  background-color: #f9f9f9;
+    border-color: #000;
+    background-color: #f9f9f9;
 }
 
 .catalog-card svg {
-  width: 32px;
-  height: 32px;
-  stroke: #000;
+    width: 32px;
+    height: 32px;
+    stroke: #000;
 }
 
+
 /* ==========================================================
-   RODAPÉ INSTITUCIONAL
+   15. RODAPÉ INSTITUCIONAL  (todas as páginas)
    ========================================================== */
 .rodape {
     width: 100%;
@@ -671,7 +746,7 @@ body {
     text-align: center;
 }
 
-/* Links do Rodapé */
+/* Links do rodapé */
 .links-rodape {
     display: flex;
     flex-wrap: wrap;
@@ -692,12 +767,13 @@ body {
     opacity: 0.6;
 }
 
+/* Barrinha "|" entre os links */
 .links-rodape .divisor {
     color: white;
     font-size: 0.8rem;
 }
 
-/* Texto do Aviso de Transparência */
+/* Texto do aviso de transparência / copyright */
 .aviso-transparencia p {
     font-size: 0.72rem;
     line-height: 1.6;
@@ -707,169 +783,29 @@ body {
     max-width: 800px;
 }
 
-/* ==========================================================
-   CARROSSEL
-   ========================================================== */
-
-.slider-container {
-    /* margin-top: 50px; */
-    width: 100%;
-    height: 70vh;
-    overflow: hidden;
-    position: relative; /* Mantém tudo preso dentro do container */
-}
-
-.slide {
-    display: none;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-.slide.active {
-    display: block;
-    opacity: 1;
-}
-
-.slide img, .foto_carrossel {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position:top;
-    display: block;
-}
-
-
-.indice-carrossel {
-    
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 5;
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 32px;
-    font-weight: 900;
-
-    
-
-}
-
-/* --- Botão "Clique Aqui" em cima da Imagem --- */
-.card-overlay {
-    position: absolute;
-    bottom: 30px;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: right;
-    margin-right: 20px;
-    z-index: 5;
-}
-
-
-/* Container Geral da Seção */
-.secao-alternada {
-    max-width: 1100px;
-    margin: 60px auto;
-    padding: 0 20px;
-}
-
-/* Cada linha de conteúdo (Texto + Imagem) */
-.bloco-conteudo {
-    display: flex;
-    align-items: center; /* Alinha verticalmente ao centro */
-    justify-content: space-between;
-    gap: 40px; /* Espaço entre o texto e a imagem */
-    margin: 40px 0;
-}
-
-/* Regra mágica para inverter a segunda linha */
-.bloco-conteudo.inverter {
-    flex-direction: row-reverse;
-}
-
-/* Estilização das caixas de texto e imagem */
-.bloco-conteudo .texto {
-    flex: 1; /* Ocupa o espaço proporcional */
-}
-
-.bloco-conteudo .texto h2 {
-    font-size: 2rem;
-    color: #072229; /* Usando aquela sua cor base elegante! */
-    margin-bottom: 15px;
-}
-
-.bloco-conteudo .texto p {
-    font-size: 1rem;
-    color: #444;
-    line-height: 1.6;
-    margin-bottom: 20px;
-    text-align: justify;
-}
-
-section p {
-
-    text-align: justify;
-
-}
-
-.bloco-conteudo .imagem {
-    flex: 1;
-}
-
-.bloco-conteudo .imagem img {
-    width: 550px;
-    height: 550px;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-    display: block;
-    object-fit: cover;
-}
 
 /* ==========================================================
-   6. RESPONSIVIDADE (CELULAR)
+   16. RESPONSIVIDADE (CELULAR, até 768px)
+   Mantido sempre no FINAL para sobrescrever as regras acima.
+   Os blocos seguem a mesma ordem das seções (4 → 15).
    ========================================================== */
 @media (max-width: 768px) {
-    #logo p {
-        font-size: 0.58rem;
-        letter-spacing: 0.8px;
-        padding: 0 5px;
-    }
 
-    .bloco-conteudo, 
-    .bloco-conteudo.inverter {
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
-    }
-
+    /* --- 4. Logo --- */
     #logo img {
         margin-top: 5vh;
         max-width: 80%;
     }
 
-    #logo h1{
-
+    #logo h1 {
         font-size: 100%;
-
     }
 
-    #logo h4{
-
+    #logo h4 {
         font-size: 70%;
-
     }
 
+    /* --- 5. Seções padrão --- */
     .secao-padrao {
         padding: 40px 20px;
     }
@@ -886,27 +822,13 @@ section p {
         font-size: 0.85rem;
     }
 
+    /* --- 8. Pilares --- */
     .grid-pilares {
         flex-direction: column; /* No telemóvel, as colunas empilham-se verticalmente */
         gap: 20px;
     }
 
-    .container-pilares h2 {
-        font-size: 1.4rem;
-    }
-
-    .links-rodape {
-        gap: 8px 12px; /* Ajusta o espaçamento quando os links quebram linha */
-    }
-
-    .links-rodape a {
-        font-size: 0.75rem;
-    }
-
-    .aviso-transparencia p {
-        font-size: 0.68rem;
-    }
-
+    /* --- 9. CTA --- */
     .secao-cta {
         padding: 45px 20px;
     }
@@ -919,12 +841,34 @@ section p {
         font-size: 0.88rem;
     }
 
-    .btn-cta {
-        width: 100%;
-        padding: 16px 20px;
-        font-size: 0.82rem;
+    /* --- 11. Carrossel --- */
+    .slider-container {
+        height: 50vh;
     }
 
+    .indice-carrossel {
+        text-align: center;
+        font-weight: 800;
+        top: 45%;
+        font-size: 15px;
+
+        color: rgba(255, 255, 255);
+    }
+
+    /* --- 12. Blocos alternados --- */
+    .bloco-conteudo,
+    .bloco-conteudo.inverter {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .bloco-conteudo .imagem img {
+        width: 350px;
+        height: 350px;
+    }
+
+    /* --- 13. Botão flutuante --- */
     .btn-flutuante {
         bottom: 15px;
         right: 15px;
@@ -932,30 +876,16 @@ section p {
         font-size: 0.72rem;
     }
 
-    .slider-container{
-
-        height: 50vh;
-
+    /* --- 15. Rodapé --- */
+    .links-rodape {
+        gap: 8px 12px; /* Ajusta o espaçamento quando os links quebram linha */
     }
 
-    .bloco-conteudo .imagem img{
-
-        width: 350px;
-    height: 350px;
-
+    .links-rodape a {
+        font-size: 0.75rem;
     }
 
-    .indice-carrossel{
-        
-        text-align: center;
-        font-weight: 800;
-        top: 45%;
-        font-size: 15px;
-
-        color: rgba(255, 255, 255);
-
+    .aviso-transparencia p {
+        font-size: 0.68rem;
     }
-
-
-
 }
