@@ -1,30 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 
+<!-- ==========================================================
+     INDEX.HTML  (página inicial)
+     Os números [N] dos comentários correspondem às seções
+     numeradas dentro de css/style.css
+     ========================================================== -->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google Fonts: Montserrat -->
+    <!-- Fonte do site: Google Fonts Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
+    <!-- Arquivo de estilos (CSS) -->
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Ícone da aba do navegador e título da aba -->
     <link rel="icon" href="img/icon_dial88.png">
     <title>DIAL88®</title>
 </head>
 
 <body>
 
-    <!-- CABEÇALHO -->
+    <!-- ==========================================================
+         CABEÇALHO + MENU  [CSS 3]
+         Barra fixa no topo com HOME, ABOUT, HER e HIM
+         ========================================================== -->
     <header class="header">
 
         <nav class="menu">
+            <!-- Links de texto -->
             <a href="index.html">HOME</a>
             <a href="#sobre">ABOUT</a>
 
+            <!-- Link HER (ícone feminino + texto) -->
             <a href="her.html" class="menu-item-genero">
                 <svg class="icon-feminino" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="12" cy="9" r="5"></circle>
@@ -34,6 +48,7 @@
                 <span>HER</span>
             </a>
 
+            <!-- Link HIM (ícone masculino + texto) -->
             <a href="him.html" class="menu-item-genero">
                 <svg class="icon-masculino" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="10" cy="14" r="5"></circle>
@@ -47,30 +62,36 @@
 
     </header>
 
-    <!-- CONTEÚDO PRINCIPAL (Múltiplas Seções empilhadas) -->
+    <!-- ==========================================================
+         CONTEÚDO PRINCIPAL  [CSS 4 em diante]
+         Todas as seções da página ficam empilhadas dentro do <main>
+         ========================================================== -->
     <main class="conteudo-principal">
 
+        <!-- LOGO + TÍTULO DE ABERTURA  [CSS 4] -->
         <div id="logo">
             <img src="img/logo_dial88.png" alt="Logo da dial88">
             <h1>OFFICIAL LICENSED MERCHANDISE</h1>
             <h4>A CAREFUL, SMART, AND QUALIFIED CHOICE</h4>
         </div>
 
-        <!-- SEÇÃO 1: HERO (Topo principal) -->
+        <!-- SEÇÃO 1: HERO (título flutuante + botão)  [CSS 5 e 6] -->
         <section class="secao-padrao hero">
             <div class="container-texto">
                 <h1 id="redefining">REDEFINING WELL-BEING</h1>
 
                 <p>At <b>dial88®</b>, we deliver a curated selection of premium products, engineered to enhance your daily routine and support a smarter, more balanced lifestyle. Every item reflects a dedication to excellence.</p>
 
+                <!-- Botão que abre o modal do catálogo (função JS no final da página) -->
                 <button class="btn-click-here" onclick="toggleCatalogDialog()">EXPLORE THE SELECTION</button>
 
             </div>
         </section>
 
+        <!-- Linha divisória  [CSS 7] -->
         <hr class="linha-separadora">
 
-        <!-- SEÇÃO 2: NOVA SEÇÃO (Com H2) -->
+        <!-- SEÇÃO 2: ABOUT US (âncora do link ABOUT do menu)  [CSS 5] -->
         <section class="secao-padrao" id="sobre">
             <div class="container-texto">
 
@@ -78,6 +99,7 @@
 
                 <h4>DIAL88’S DEDICATION TO QUALITY</h4>
 
+                <!-- As palavras com class="keyworks" aparecem em marrom (estilo vem de ".container-texto a") -->
                 <p>
                     We believe that contemporary well-being relies on a practical balance between daily energy and focus. However, navigating the modern market to find premium <a class="keyworks" href="">nutritional</a>, <a class="keyworks" href="">aesthetic</a>, and <a class="keyworks" href="">lifestyle solutions</a> — those that genuinely complement an <a class="keyworks" href="">active routine</a> — can be a <a class="keyworks" href="">complex task</a> up>.
                 </p>
@@ -92,9 +114,6 @@
                     Whether the goal is to streamline a busy schedule, support long-term wellness, or maintain <a class="keyworks" href="">daily vitality</a>, every item selected by <b>dial88®</b> represents a thoughtful, high-quality choice. It is designed for individuals who appreciate premium standards and wish to <a class="keyworks" href="">support their everyday physical routine</a>.
                 </p>
 
-
-
-
             </div>
 
             </div>
@@ -102,6 +121,7 @@
 
         <hr class="linha-separadora">
 
+        <!-- SEÇÃO 3: OS TRÊS PILARES (3 cartões lado a lado)  [CSS 8] -->
         <section class="secao-padrao">
             <div class="container-texto">
                 <h3>THE THREE PILLARS OF DIAL88</h3>
@@ -133,6 +153,7 @@
 
         <hr class="linha-separadora">
 
+        <!-- SEÇÃO 4: CTA - CHAMADA PARA AÇÃO ("INVEST IN YOUR BALANCE")  [CSS 9 e 6] -->
         <section class="secao-cta">
             <div class="container-cta">
 
@@ -147,6 +168,7 @@
                     Click the button below to browse the collection selected by our experts:
                 </p>
 
+                <!-- Botão que abre o modal do catálogo -->
                 <!-- Substitua 'SEU_LINK_AQUI' pelo link de afiliado ou checkout -->
                 <button class="btn-click-here" onclick="toggleCatalogDialog()">
                     BROWSE THE PORTFOLIO
@@ -157,6 +179,7 @@
 
         <hr class="linha-separadora">
 
+        <!-- SEÇÃO 5: REFERÊNCIAS / BIBLIOGRAFIA  [CSS 10] -->
         <section class="referencias-cientificas">
             <h4>SELECTED BIBLIOGRAPHY & INDUSTRY LITERATURE</h4>
             <ul>
@@ -174,13 +197,22 @@
 
     </main>
 
+    <!-- ==========================================================
+         BOTÃO FLUTUANTE "CATALOG"  [CSS 13]
+         Fica fixo no canto inferior direito e abre o modal
+         ========================================================== -->
     <button class="btn-flutuante" aria-label="catalogo" onclick="toggleCatalogDialog()">
         <span>CATALOG</span>
     </button>
 
-    <!-- O Dialog (Modal) -->
+    <!-- ==========================================================
+         MODAL DO CATÁLOGO (escolha HER / HIM)  [CSS 14]
+         Fica escondido; o JS adiciona a classe "active" para mostrar
+         ========================================================== -->
     <div class="catalog-overlay" id="catalogDialog" onclick="fecharDialogFora(event)">
         <div class="catalog-modal">
+
+            <!-- Botão de fechar (X) -->
             <button class="close-modal" onclick="toggleCatalogDialog()">&times;</button>
 
             <h3>Choose your catalog:</h3>
@@ -211,11 +243,13 @@
         </div>
     </div>
 
-
+    <!-- ==========================================================
+         RODAPÉ INSTITUCIONAL  [CSS 15]
+         ========================================================== -->
     <footer class="rodape">
         <div class="container-rodape">
 
-            <!-- Links Institucionais -->
+            <!-- Links institucionais -->
             <nav class="links-rodape">
                 <a href="#">Privacy Policy</a>
                 <span class="divisor">|</span>
@@ -226,22 +260,23 @@
                 <a href="#">Customer Service</a>
             </nav>
 
-            <!-- Aviso de Transparência e Direitos Autoriais -->
-
-                <div class="aviso-transparencia">
+            <!-- Aviso de transparência e direitos autorais -->
+            <div class="aviso-transparencia">
                 <p>Copyright © 2026 dial88. All rights reserved.</p>
                 <p>The content and selections presented by the dial88 curation team are intended solely for general well-being and lifestyle guidance. They do not constitute, nor should they substitute for, professional medical advice, diagnosis, or treatment. Always consult with a qualified healthcare professional regarding your personal physical routine.</p>
                 <br>
                 <p>FDA Disclaimer: These statements have not been evaluated by the Food and Drug Administration. The items and selections featured on this platform are not intended to diagnose, treat, cure, or prevent any disease.</p>
             </div>
-            
 
         </div>
     </footer>
 
-
+    <!-- ==========================================================
+         JAVASCRIPT: abrir e fechar o modal do catálogo
+         ========================================================== -->
     <script>
 
+        // Abre/fecha o modal (usado pelos botões EXPLORE, BROWSE, CATALOG e pelo X)
         function toggleCatalogDialog() {
             const dialog = document.getElementById('catalogDialog');
             dialog.classList.toggle('active');
