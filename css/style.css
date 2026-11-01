@@ -62,7 +62,7 @@ section p {
    ========================================================== */
 
 /* Barra do topo que "gruda" na tela ao rolar */
-.header {
+#header-container, .header {
     position: sticky;  /* Torna o cabeçalho "grudento" */
     top: 0;            /* Cola no topo da janela assim que rolar */
     z-index: 1000;     /* Garante que fique acima de todo o conteúdo ao passar por cima */
