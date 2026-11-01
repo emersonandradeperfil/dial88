@@ -360,6 +360,12 @@ section p {
     align-items: center;
 }
 
+.container-cta li {
+
+    text-align: left;
+
+}
+
 /* "INVEST IN YOUR BALANCE" */
 .cta-titulo {
     font-size: 1.65rem;
