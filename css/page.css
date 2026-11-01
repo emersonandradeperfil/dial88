@@ -1,5 +1,23 @@
 /* ==========================================================
+   PAGE.CSS  (páginas page/vitality_her.html e page/vitality_him.html)
+   ----------------------------------------------------------
+   ÍNDICE (segue a ordem em que as coisas aparecem no HTML)
+    1. Variáveis (cores, fonte)
+    2. Reset global e body
+    3. Cabeçalho e menu
+    4. Carrossel / foto do topo
+    5. Artigo (hero): título, sumário, subtítulo e parágrafos
+    6. Linha divisória <hr>
+    7. CTA: chamada para ação + botão principal
+    8. Botão flutuante
+    9. Rodapé
+   10. Responsivo (celular) - sempre por último!
+   ========================================================== */
+
+
+/* ==========================================================
    1. VARIÁVEIS / DESIGN SYSTEM (VITALITY)
+   Mude aqui para trocar cor de texto, fundo e fonte do site todo
    ========================================================== */
 :root {
     --texto: #4A4643;
@@ -11,8 +29,9 @@
     --font: 'Montserrat', sans-serif;
 }
 
+
 /* ==========================================================
-   2. RESET GLOBAL
+   2. RESET GLOBAL E BODY
    ========================================================== */
 * {
     margin: 0;
@@ -27,9 +46,12 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+
 /* ==========================================================
-   3. CABEÇALHO & LOGO
+   3. CABEÇALHO E MENU  (<header class="header">)
    ========================================================== */
+
+/* Barra do topo que "gruda" na tela ao rolar */
 .header {
     position: sticky;
     top: 0;
@@ -42,15 +64,7 @@ body {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.linha-separadora {
-    width: 100%;
-    max-width: 1200px;
-    height: 1px;
-    background-color: rgba(74, 70, 67, 0.15);
-    border: none;
-    margin: 12px auto;
-}
-
+/* Menu (<nav class="menu">) */
 .menu {
     display: flex;
     gap: 10%;
@@ -59,6 +73,7 @@ body {
     justify-content: center;
 }
 
+/* Links do menu: HOME, ABOUT, HER, HIM */
 .menu a {
     text-decoration: none;
     color: var(--texto);
@@ -72,6 +87,7 @@ body {
     opacity: 0.6;
 }
 
+/* Links HER / HIM (ícone + palavra) */
 .menu-item-genero {
     display: inline-flex;
     align-items: center;
@@ -81,15 +97,20 @@ body {
     font-weight: bold;
 }
 
+/* Tamanho e cor dos ícones SVG do menu */
 .menu-item-genero svg {
     width: 18px;
     height: 18px;
     stroke: currentColor;
 }
 
+
 /* ==========================================================
-   4. CARROSSEL / TOPO
+   4. CARROSSEL / FOTO DO TOPO  (<section class="slider-container">)
+   Aqui há só 1 slide, mas as classes são as mesmas do carrossel
    ========================================================== */
+
+/* Caixa da foto (ocupa 70% da altura da tela) */
 .slider-container {
     width: 100%;
     height: 70vh;
@@ -97,6 +118,7 @@ body {
     position: relative;
 }
 
+/* Cada slide fica empilhado; só o .active aparece */
 .slide {
     display: none;
     width: 100%;
@@ -113,6 +135,7 @@ body {
     opacity: 1;
 }
 
+/* Foto do slide */
 .slide img,
 .foto_carrossel {
     width: 100%;
@@ -122,9 +145,13 @@ body {
     display: block;
 }
 
+
 /* ==========================================================
    5. ARTIGO / NOTÍCIA (TEXTOS SUAVES E CONFORTÁVEIS)
+   <section class="secao-padrao hero"> + <div class="container-texto">
    ========================================================== */
+
+/* Seção do artigo */
 .hero {
     padding: 70px 20px;
     display: flex;
@@ -133,6 +160,7 @@ body {
     width: 100%;
 }
 
+/* Coluna de texto centralizada */
 .container-texto {
     max-width: 820px;
     /* Largura ideal de leitura para artigos */
@@ -154,13 +182,13 @@ body {
     margin-bottom: 12px;
 }
 
-/* Lead / Parágrafo de Introdução em Destaque (Primeiro H3) */
-.sumario {
+/* Lead / Parágrafo de Introdução em Destaque (<p class="sumario">)
+   (usa ".container-texto .sumario" para ganhar de ".container-texto p" abaixo) */
+.container-texto .sumario {
     font-size: 1.05rem;
     font-weight: 500;
     line-height: 1.65;
     color: #383431;
-    text-align: center;
     background-color: rgba(255, 255, 255, 0.4);
     border-left: 3px solid #7A5C38;
     padding: 16px 20px;
@@ -171,8 +199,8 @@ body {
     font-style: italic;
 }
 
-/* Subtítulos Intermediários dentro do texto (Demais H3) */
-.container-texto h3:not(:first-of-type) {
+/* Subtítulos Intermediários dentro do texto (<h3>) */
+.container-texto h3 {
     font-size: 1.35rem;
     font-weight: 700;
     color: #072229;
@@ -198,14 +226,36 @@ body {
     margin-bottom: 22px;
 }
 
+/* Links dentro do texto (palavras com class="keyworks") - igual ao style.css */
+.container-texto a {
+    text-decoration: none;
+    color: #7A5C38;
+    font-weight: 600;
+}
+
+/* Negrito dentro dos parágrafos (ex.: dial88®) */
 .container-texto p b,
 .container-texto p strong {
     color: #072229;
     font-weight: 700;
 }
 
+
 /* ==========================================================
-   6. ÁREA DE CHAMADA PARA AÇÃO (CTA)
+   6. LINHA DIVISÓRIA  (<hr class="linha-separadora">)
+   ========================================================== */
+.linha-separadora {
+    width: 100%;
+    max-width: 1200px;
+    height: 1px;
+    background-color: rgba(74, 70, 67, 0.15);
+    border: none;
+    margin: 12px auto;
+}
+
+
+/* ==========================================================
+   7. ÁREA DE CHAMADA PARA AÇÃO (CTA) + BOTÃO PRINCIPAL
    ========================================================== */
 .secao-cta {
     width: 100%;
@@ -224,6 +274,7 @@ body {
     align-items: center;
 }
 
+/* Texto grande ("Se você busca investir na sua longevidade...") */
 .cta-titulo {
     font-size: 1.65rem;
     font-weight: 700;
@@ -233,6 +284,7 @@ body {
     text-align: justify;
 }
 
+/* "Clique no botão abaixo..." */
 .cta-subtitulo {
     font-size: 0.95rem;
     font-style: italic;
@@ -243,7 +295,7 @@ body {
     font-weight: 400;
 }
 
-/* Botão de Compra Customizado */
+/* Botão de Compra Customizado ("NOSSA SELEÇÃO") */
 .btn-click-here {
     display: inline-block;
     color: #ffffff;
@@ -266,6 +318,7 @@ body {
     background-size: 250% auto;
 }
 
+/* Animação de brilho (também usada pelo botão flutuante, seção 8) */
 @keyframes brilhoGradiente {
     0% {
         background-position: 0% 50%;
@@ -280,7 +333,10 @@ body {
     }
 }
 
-/* Botão Flutuante */
+
+/* ==========================================================
+   8. BOTÃO FLUTUANTE "dial88®"  (canto inferior direito)
+   ========================================================== */
 .btn-flutuante {
     position: fixed;
     bottom: 25px;
@@ -309,12 +365,13 @@ body {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
 
+
 /* ==========================================================
-   7. RODAPÉ INSTITUCIONAL
+   9. RODAPÉ INSTITUCIONAL
    ========================================================== */
 .rodape {
     width: 100%;
-    padding: 30px 20px 40px 20px;
+    padding: 20px 20px 40px 20px;
     background-color: #a1a2a3;
 }
 
@@ -324,10 +381,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 25px;
     text-align: center;
 }
 
+/* Links do rodapé */
 .links-rodape {
     display: flex;
     flex-wrap: wrap;
@@ -348,11 +406,13 @@ body {
     opacity: 0.6;
 }
 
+/* Barrinha "|" entre os links */
 .links-rodape .divisor {
     color: white;
     font-size: 0.8rem;
 }
 
+/* Texto do aviso de transparência / copyright */
 .aviso-transparencia p {
     font-size: 0.72rem;
     line-height: 1.6;
@@ -362,10 +422,20 @@ body {
     max-width: 800px;
 }
 
+
 /* ==========================================================
-   8. RESPONSIVIDADE (MOBILE)
+   10. RESPONSIVIDADE (CELULAR, até 768px)
+   Mantido sempre no FINAL para sobrescrever as regras acima.
+   Os blocos seguem a mesma ordem das seções (4 → 7).
    ========================================================== */
 @media (max-width: 768px) {
+
+    /* --- 4. Carrossel / foto do topo --- */
+    .slider-container {
+        height: 50vh;
+    }
+
+    /* --- 5. Artigo --- */
     .hero {
         padding: 40px 18px;
     }
@@ -374,18 +444,7 @@ body {
         font-size: 1.6rem;
     }
 
-    .container-texto h2 {
-        font-size: 0.95rem;
-        margin-bottom: 20px;
-    }
-
-    .container-texto h3:first-of-type {
-        font-size: 0.92rem;
-        padding: 12px 16px;
-        margin-bottom: 24px;
-    }
-
-    .container-texto h3:not(:first-of-type) {
+    .container-texto h3 {
         font-size: 1.15rem;
         margin-top: 20px;
     }
@@ -397,10 +456,14 @@ body {
         /* No celular, alinhamento à esquerda evita espaçamentos forçados */
     }
 
-    .slider-container {
-        height: 50vh;
+    /* Sumário no celular: mesmo tamanho dos parágrafos */
+    .container-texto .sumario {
+        font-size: 0.92rem;
+        line-height: 1.7;
+        text-align: left;
     }
 
+    /* --- 7. CTA e botão principal --- */
     .cta-titulo {
         font-size: 1.25rem;
     }
