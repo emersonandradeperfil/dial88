@@ -663,6 +663,7 @@ ol li::marker {
     /* --- 8. Seções do produto: colunas viram uma embaixo da outra --- */
     .produto-hero {
         flex-direction: column;
+        align-items: center;
     }
 
     /* --- 9. Grade de tópicos: 1 card por linha --- */
