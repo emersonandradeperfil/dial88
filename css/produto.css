@@ -407,6 +407,56 @@ body {
     font-size: 24px;
 }
 
+/* Inicio Parte do "Sem produtos" */
+.no-products {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    width: 100%;
+    min-height: 91dvh;
+
+}
+
+.no-products p {
+
+    text-align: center;
+    max-width: 500px;
+
+}
+
+.no-products h2 {
+
+    text-transform: uppercase;
+
+}
+
+.icon-no-products {
+    
+    width: 15vmin;  
+    height: 15vmin; 
+    
+    min-width: 200px;
+    min-height: 200px;
+    max-width: 500px;
+    max-height: 500px;
+
+
+    border: 2px solid var(--texto); /* Borda azul igual à sua referência */
+    border-radius: 50%;        /* Deixa redondo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: var(--texto);
+    /* background-color: #0077b6; */
+    font-size: 15vh;
+}
+
+/* Fim Parte do "Sem produtos" */
+
 /* Textos dos cards */
 .ingrediente h3 {
     font-size: 22px;
@@ -570,6 +620,7 @@ ol li::marker {
     width: 100%;
     padding: 20px 20px 40px 20px;
     background-color: #a1a2a3;
+    
 }
 
 .container-rodape {
@@ -580,6 +631,7 @@ ol li::marker {
     align-items: center;
     gap: 25px;
     text-align: center;
+    
 }
 
 /* Links do rodapé */
