@@ -574,6 +574,12 @@ ol li::marker {
     color: #555555;
 }
 
+.faq-answer ul{
+
+    margin-left: 20px;
+    
+}    
+
 /* Quando o <details> estiver aberto, troca o ícone de mais (+) para menos (-).
    Por isso TODAS as perguntas usam a classe "fa-plus" no HTML. */
 .faq-item[open] .fa-plus::before {
