@@ -1,58 +1,84 @@
 // Criar o objeto de áudio e configurar o loop continuo
-const audio = new Audio('../song/music.mp3'); // <--- Substitua aqui pelo caminho correto da sua música se necessário
+const audio = new Audio('../../song/music.mp3');
 audio.loop = true;
 
-// Seleciona os botões do header criados no seu HTML
-const btnEnable = document.getElementById('btn-enable');
-const btnDisable = document.getElementById('btn-disable');
-
-// 1. Recuperar o estado salvo no navegador ao carregar a página
-window.addEventListener('DOMContentLoaded', () => {
+// Função principal que lê o localStorage e sincroniza TUDO (Som e Botões)
+function sincronizarEstadoDoAudio() {
     const savedTime = localStorage.getItem('musicTime');
     const isPlaying = localStorage.getItem('musicPlaying') === 'true';
 
-    // Restaura o tempo exato de onde a música parou na página anterior
-    if (savedTime) {
+    // 1. Sincroniza o tempo do áudio (se houver tempo salvo)
+    if (savedTime && audio.currentTime === 0) {
         audio.currentTime = parseFloat(savedTime);
     }
 
-    // Se a música já estava tocando antes, continua tocando e exibe o botão DISABLE
+    // 2. Sincroniza o play/pause do som
     if (isPlaying) {
-        audio.play().catch(err => console.log("Aguardando clique inicial do usuário para liberar o som."));
-        alternarBotoesVisuais(true);
+        // Tenta dar o play (se o navegador já estiver liberado por clique prévio)
+        audio.play().catch(err => console.log("Aguardando interação do usuário para tocar."));
     } else {
-        alternarBotoesVisuais(false);
+        audio.pause();
+    }
+
+    // 3. Força a troca visual dos botões de acordo com o localStorage
+    alternarBotoesVisuais(isPlaying);
+}
+
+// 1. Quando a página carrega por completo
+window.addEventListener('DOMContentLoaded', () => {
+    sincronizarEstadoDoAudio();
+});
+
+// 2. O GUARDA-COSTAS DO INJECT: Monitora a página para pegar o HTML assim que ele entrar na tela
+const observer = new MutationObserver(() => {
+    const btnEnable = document.getElementById('btn-enable');
+    if (btnEnable) {
+        // Encontrou o botão injetado! Sincroniza o estado na hora e para de observar
+        sincronizarEstadoDoAudio();
+        observer.disconnect(); 
     }
 });
 
-// 2. Grava a posição atual da música a cada segundo para não perder o ponto
+// Inicia o monitoramento de elementos adicionados na página
+observer.observe(document.body, { childList: true, subtree: true });
+
+// 3. Grava a posição atual da música a cada segundo para não perder o ponto
 audio.addEventListener('timeupdate', () => {
     localStorage.setItem('musicTime', audio.currentTime);
 });
 
-// 3. Ação ao clicar em ENABLE (Dá play e altera o visual)
-btnEnable.addEventListener('click', (e) => {
-    e.preventDefault();
-    audio.play();
-    localStorage.setItem('musicPlaying', 'true');
-    alternarBotoesVisuais(true);
+// 4. DELEGAÇÃO DE EVENTOS: Trata os cliques nos botões injetados ou fixos
+document.addEventListener('click', (e) => {
+    const btnEnable = e.target.closest('#btn-enable');
+    const btnDisable = e.target.closest('#btn-disable');
+
+    if (btnEnable) {
+        e.preventDefault();
+        audio.play();
+        localStorage.setItem('musicPlaying', 'true');
+        alternarBotoesVisuais(true);
+    }
+
+    if (btnDisable) {
+        e.preventDefault();
+        audio.pause();
+        localStorage.setItem('musicPlaying', 'false');
+        alternarBotoesVisuais(false);
+    }
 });
 
-// 4. Ação ao clicar em DISABLE (Dá pause e altera o visual)
-btnDisable.addEventListener('click', (e) => {
-    e.preventDefault();
-    audio.pause();
-    localStorage.setItem('musicPlaying', 'false');
-    alternarBotoesVisuais(false);
-});
-
-// FUNÇÃO INTERNA: Faz sumir um botão e aparecer o outro dinamicamente
+// FUNÇÃO ALTERNAR VISUAL: Garante a troca exata adicionando !important nas propriedades
 function alternarBotoesVisuais(tocando) {
-    if (tocando) {
-        btnEnable.style.setProperty('display', 'none', 'important');
-        btnDisable.style.setProperty('display', 'inline-flex', 'important');
-    } else {
-        btnEnable.style.setProperty('display', 'inline-flex', 'important');
-        btnDisable.style.setProperty('display', 'none', 'important');
+    const btnEnable = document.getElementById('btn-enable');
+    const btnDisable = document.getElementById('btn-disable');
+
+    if (btnEnable && btnDisable) {
+        if (tocando) {
+            btnEnable.style.setProperty('display', 'none', 'important');
+            btnDisable.style.setProperty('display', 'inline-flex', 'important');
+        } else {
+            btnEnable.style.setProperty('display', 'inline-flex', 'important');
+            btnDisable.style.setProperty('display', 'none', 'important');
+        }
     }
 }
