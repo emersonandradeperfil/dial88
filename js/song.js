@@ -1,53 +1,56 @@
-// Criar o objeto de áudio e configurar o loop continuo
-const audio = new Audio('song/music.mp3');
+// 1. CONFIGURAÇÃO INTELIGENTE DO CAMINHO DO ÁUDIO (Local vs GitHub Pages)
+const repoName = window.location.pathname.split('/')[1]; // Pega o nome do repositório no GitHub
+const isGitHubPages = window.location.hostname.includes('github.io');
+
+// Se estiver no GitHub, inclui o nome do repositório antes da pasta /song/
+const audioPath = isGitHubPages ? `/${repoName}/song/music.mp3` : '/song/music.mp3';
+
+const audio = new Audio(audioPath);
 audio.loop = true;
 
-// Função principal que lê o localStorage e sincroniza TUDO (Som e Botões)
+// 2. SINCRONIZAÇÃO DO ESTADO DO ÁUDIO (Som e Botões)
 function sincronizarEstadoDoAudio() {
     const savedTime = localStorage.getItem('musicTime');
     const isPlaying = localStorage.getItem('musicPlaying') === 'true';
 
-    // 1. Sincroniza o tempo do áudio (se houver tempo salvo)
+    // Recupera o tempo exato de onde parou
     if (savedTime && audio.currentTime === 0) {
         audio.currentTime = parseFloat(savedTime);
     }
 
-    // 2. Sincroniza o play/pause do som
+    // Gerencia o play/pause
     if (isPlaying) {
-        // Tenta dar o play (se o navegador já estiver liberado por clique prévio)
-        audio.play().catch(err => console.log("Aguardando interação do usuário para tocar."));
+        audio.play().catch(err => console.log("Aguardando clique inicial do usuário para tocar o som."));
     } else {
         audio.pause();
     }
 
-    // 3. Força a troca visual dos botões de acordo com o localStorage
+    // Força a atualização visual dos botões
     alternarBotoesVisuais(isPlaying);
 }
 
-// 1. Quando a página carrega por completo
+// 3. EVENTOS DE CARREGAMENTO
+// Quando a página termina de carregar o HTML básico
 window.addEventListener('DOMContentLoaded', () => {
     sincronizarEstadoDoAudio();
 });
 
-// 2. O GUARDA-COSTAS DO INJECT: Monitora a página para pegar o HTML assim que ele entrar na tela
+// MONITOR DE INJEÇÃO (Para páginas que usam include/inject assíncrono)
 const observer = new MutationObserver(() => {
     const btnEnable = document.getElementById('btn-enable');
     if (btnEnable) {
-        // Encontrou o botão injetado! Sincroniza o estado na hora e para de observar
-        sincronizarEstadoDoAudio();
-        observer.disconnect(); 
+        sincronizarEstadoDoAudio(); // Sincroniza assim que os botões aparecerem
+        observer.disconnect();      // Desliga o monitor para poupar memória
     }
 });
-
-// Inicia o monitoramento de elementos adicionados na página
 observer.observe(document.body, { childList: true, subtree: true });
 
-// 3. Grava a posição atual da música a cada segundo para não perder o ponto
+// 4. SALVAMENTO DA POSIÇÃO DA MÚSICA (A cada segundo)
 audio.addEventListener('timeupdate', () => {
     localStorage.setItem('musicTime', audio.currentTime);
 });
 
-// 4. DELEGAÇÃO DE EVENTOS: Trata os cliques nos botões injetados ou fixos
+// 5. DELEGAÇÃO DE EVENTOS DE CLIQUE (Funciona para botões fixos e injetados)
 document.addEventListener('click', (e) => {
     const btnEnable = e.target.closest('#btn-enable');
     const btnDisable = e.target.closest('#btn-disable');
@@ -67,7 +70,7 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// FUNÇÃO ALTERNAR VISUAL: Garante a troca exata adicionando !important nas propriedades
+// 6. FUNÇÃO AUXILIAR PARA TROCA VISUAL DOS BOTÕES
 function alternarBotoesVisuais(tocando) {
     const btnEnable = document.getElementById('btn-enable');
     const btnDisable = document.getElementById('btn-disable');
