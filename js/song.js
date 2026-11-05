@@ -1,5 +1,5 @@
 // Criar o objeto de áudio e configurar o loop continuo
-const audio = new Audio('../../song/music.mp3');
+const audio = new Audio('song/music.mp3');
 audio.loop = true;
 
 // Função principal que lê o localStorage e sincroniza TUDO (Som e Botões)
