@@ -3,7 +3,7 @@ const audioPath = '/song/music.mp3';
 const audio = new Audio(audioPath);
 audio.loop = true;
 
-// Função que lê o localStorage e tenta sincronizar
+// Função principal que lê o localStorage e sincroniza tudo
 function sincronizarEstadoDoAudio() {
     const savedTime = localStorage.getItem('musicTime');
     const isPlaying = localStorage.getItem('musicPlaying') === 'true';
@@ -13,30 +13,25 @@ function sincronizarEstadoDoAudio() {
     }
 
     if (isPlaying) {
-        // Tenta o play automático (funciona em Desktop/Android)
-        audio.play().catch(err => {
-            console.log("iOS bloqueou o autoplay. O som tocará na próxima interação direta.");
-        });
+        // Tenta dar o play
+        audio.play()
+            .then(() => {
+                // Se o navegador aceitou e tocou, mostra o botão DISABLE
+                alternarBotoesVisuais(true);
+            })
+            .catch(err => {
+                console.log("Autoplay bloqueado pelo sistema operacional (ex: iPhone).");
+                // O PULO DO GATO: Se o iPhone bloqueou, força o botão a voltar para o modo ENABLE
+                // Assim o usuário precisa dar apenas 1 clique normal para ativar o som!
+                alternarBotoesVisuais(false);
+            });
     } else {
         audio.pause();
+        alternarBotoesVisuais(false);
     }
-
-    alternarBotoesVisuais(isPlaying);
 }
 
-// 2. INTERCEPTADOR SÍNCRONO PARA MOBILE (O pulo do gato para o iPhone)
-// Captura qualquer clique na página antes que o navegador mude a ação
-document.addEventListener('click', (e) => {
-    const isPlaying = localStorage.getItem('musicPlaying') === 'true';
-    
-    // Se o localStorage diz que o som deveria estar tocando, mas o iOS pausou
-    if (isPlaying && audio.paused) {
-        // Força o play IMEDIATAMENTE no contexto do clique do usuário
-        audio.play().catch(e => console.log("Erro ao forçar áudio:", e));
-    }
-}, { passive: false });
-
-// 3. EVENTOS DE CARREGAMENTO
+// 2. EVENTOS DE CARREGAMENTO
 window.addEventListener('DOMContentLoaded', () => {
     sincronizarEstadoDoAudio();
 });
@@ -50,21 +45,24 @@ const observer = new MutationObserver(() => {
 });
 observer.observe(document.body, { childList: true, subtree: true });
 
-// 4. SALVAMENTO DA POSIÇÃO DA MÚSICA
+// 3. SALVAMENTO DA POSIÇÃO DA MÚSICA
 audio.addEventListener('timeupdate', () => {
     localStorage.setItem('musicTime', audio.currentTime);
 });
 
-// 5. CLIQUES DIRETOS NOS BOTÕES DO COMPONENTE
+// 4. CLIQUES DIRETOS NOS BOTÕES
 document.addEventListener('click', (e) => {
     const btnEnable = e.target.closest('#btn-enable');
     const btnDisable = e.target.closest('#btn-disable');
 
     if (btnEnable) {
         e.preventDefault();
-        audio.play();
-        localStorage.setItem('musicPlaying', 'true');
-        alternarBotoesVisuais(true);
+        audio.play()
+            .then(() => {
+                localStorage.setItem('musicPlaying', 'true');
+                alternarBotoesVisuais(true);
+            })
+            .catch(err => console.log("Bloqueado:", err));
     }
 
     if (btnDisable) {
@@ -75,7 +73,7 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// 6. TROCA VISUAL DOS BOTÕES
+// 5. TROCA VISUAL DOS BOTÕES
 function alternarBotoesVisuais(tocando) {
     const btnEnable = document.getElementById('btn-enable');
     const btnDisable = document.getElementById('btn-disable');
