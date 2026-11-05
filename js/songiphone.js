@@ -1,9 +1,9 @@
-// 1. CAMINHO DO ÁUDIO PARA HOSTGATOR
+// 1. CONFIGURAÇÃO DO CAMINHO DO ÁUDIO PARA HOSTGATOR
 const audioPath = '/song/music.mp3';
 const audio = new Audio(audioPath);
 audio.loop = true;
 
-// Função principal que lê o localStorage e sincroniza tudo
+// Função que lê o localStorage e tenta sincronizar
 function sincronizarEstadoDoAudio() {
     const savedTime = localStorage.getItem('musicTime');
     const isPlaying = localStorage.getItem('musicPlaying') === 'true';
@@ -13,10 +13,9 @@ function sincronizarEstadoDoAudio() {
     }
 
     if (isPlaying) {
-        // Tenta dar play. Se o iPhone bloquear, ativa o desbloqueador por toque
+        // Tenta o play automático (funciona em Desktop/Android)
         audio.play().catch(err => {
-            console.log("iOS bloqueou o autoplay. Aguardando toque na tela...");
-            ativarDesbloqueioPorToqueNoMobile();
+            console.log("iOS bloqueou o autoplay. O som tocará na próxima interação direta.");
         });
     } else {
         audio.pause();
@@ -25,25 +24,19 @@ function sincronizarEstadoDoAudio() {
     alternarBotoesVisuais(isPlaying);
 }
 
-// FUNÇÃO ESPECIAL PARA IPHONE: Libera o som no primeiro toque na tela
-function activarDesbloqueioPorToqueNoMobile() {
-    const liberarSom = () => {
-        const isPlaying = localStorage.getItem('musicPlaying') === 'true';
-        // Se o usuário mudou de página com o som ligado, dá o play no primeiro toque
-        if (isPlaying && audio.paused) {
-            audio.play().catch(e => console.log(e));
-        }
-        // Remove os ouvintes para não ficar rodando toda hora
-        document.removeEventListener('click', liberarSom);
-        document.removeEventListener('touchstart', liberarSom);
-    };
+// 2. INTERCEPTADOR SÍNCRONO PARA MOBILE (O pulo do gato para o iPhone)
+// Captura qualquer clique na página antes que o navegador mude a ação
+document.addEventListener('click', (e) => {
+    const isPlaying = localStorage.getItem('musicPlaying') === 'true';
+    
+    // Se o localStorage diz que o som deveria estar tocando, mas o iOS pausou
+    if (isPlaying && audio.paused) {
+        // Força o play IMEDIATAMENTE no contexto do clique do usuário
+        audio.play().catch(e => console.log("Erro ao forçar áudio:", e));
+    }
+}, { passive: false });
 
-    // Escuta tanto cliques normais quanto toques na tela (mobile)
-    document.addEventListener('click', liberarSom);
-    document.addEventListener('touchstart', liberarSom);
-}
-
-// 2. EVENTOS DE CARREGAMENTO (Mantém igual)
+// 3. EVENTOS DE CARREGAMENTO
 window.addEventListener('DOMContentLoaded', () => {
     sincronizarEstadoDoAudio();
 });
@@ -57,12 +50,12 @@ const observer = new MutationObserver(() => {
 });
 observer.observe(document.body, { childList: true, subtree: true });
 
-// 3. SALVAMENTO DA POSIÇÃO DA MÚSICA
+// 4. SALVAMENTO DA POSIÇÃO DA MÚSICA
 audio.addEventListener('timeupdate', () => {
     localStorage.setItem('musicTime', audio.currentTime);
 });
 
-// 4. CLIQUES NOS BOTÕES (Mantém igual)
+// 5. CLIQUES DIRETOS NOS BOTÕES DO COMPONENTE
 document.addEventListener('click', (e) => {
     const btnEnable = e.target.closest('#btn-enable');
     const btnDisable = e.target.closest('#btn-disable');
@@ -82,7 +75,7 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// 5. TROCA VISUAL DOS BOTÕES
+// 6. TROCA VISUAL DOS BOTÕES
 function alternarBotoesVisuais(tocando) {
     const btnEnable = document.getElementById('btn-enable');
     const btnDisable = document.getElementById('btn-disable');
