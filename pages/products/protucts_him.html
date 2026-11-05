@@ -151,9 +151,37 @@
          BOTÃO FLUTUANTE "dial88®"  [CSS 13]
          Fixo no canto inferior direito; leva para o ABOUT do index
          ========================================================== -->
-    <a href="../../index.html#sobre" class="btn-flutuante" aria-label="About dial8">
-    <span>dial8®</span>
-  </a>
+    <a href="protucts_her.html" class="btn-flutuante" aria-label="About dial8">
+    
+        <svg class="icon-feminino" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="9" r="5"></circle>
+                    <path d="M12 14V21"></path>
+                    <path d="M9 18H15"></path>
+                </svg>
+        <span>TO HER</span>
+    
+    </a>
+
+        <!-- BOTÃO FLUTUANTE "SONG"  [CSS 13] -->
+        <!-- Botão para ATIVAR -->
+        <button type="button" id="btn-enable" class="btn-flutuante-song">
+            <!-- Ícone de Nota Musical -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
+            </svg>
+        </button>
+        
+        <!-- Botão para DESATIVAR -->
+        <button type="button" id="btn-disable" class="btn-flutuante-song" style="display: none;">
+            <!-- Ícone de Alto-falante Mutado -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+        
+                <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
+                <line x1="5.5" y1="5.5" x2="18.5" y2="18.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+        </button>
+
+    <script src="../../js/song2.js"></script>
 
     <!-- ==========================================================
          RODAPÉ INSTITUCIONAL  [CSS 15]

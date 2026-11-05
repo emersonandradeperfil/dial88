@@ -29,5 +29,6 @@ function carregarComponente(idContainer, nomeArquivo) {
 window.onload = function() {
     carregarComponente('header-container', 'header.html');
     carregarComponente('elements-container', 'elements.html');
+    carregarComponente('song-container', 'song.html');
     carregarComponente('footer-container', 'footer.html');
 };
