@@ -72,7 +72,7 @@
     <section id="topo" class="slider-container carrossel-container">
 
         <!-- Slide 1 (começa visível) -->
-        <div class="slide active">
+        <div class="slide active" id="campanha">
             <img class="foto_carrossel" src="../../img/produtos/femicore/banner.jfif" alt="Vitality & Well-being">
 
 
@@ -81,8 +81,8 @@
             </div>
         </div>
 
-        <!-- Slide 2 (começa visível) -->
-        <div class="slide active">
+        <!-- Slide 2 -->
+        <div class="slide">
             <img class="foto_carrossel" src="../../img/produtos/primebiome/banner.jfif" alt="Vitality & Well-being">
 
 
@@ -208,7 +208,6 @@
          (para mudar o tempo, altere o 5000 em startAutoSlide)
          ========================================================== -->
     <script>
-
         document.addEventListener('DOMContentLoaded', function () {
             // Elementos do carrossel
             const slides = document.querySelectorAll('.slide');
@@ -216,7 +215,7 @@
             const prevBtn = document.querySelector('.carrossel-btn.prev');
 
             let currentSlide = 0;
-            let autoSlideInterval;
+            let autoSlideTimer;
 
             // Mostra o slide pelo número (remove "active" de todos e coloca no escolhido)
             function showSlide(index) {
@@ -228,40 +227,51 @@
             function nextSlide() {
                 currentSlide = (currentSlide + 1) % slides.length;
                 showSlide(currentSlide);
+                startAutoSlide(); // Reinicia o timer com o tempo dinâmico do próximo slide
             }
 
             // Vai para o slide anterior (vai ao último se estiver no primeiro)
             function prevSlide() {
                 currentSlide = (currentSlide - 1 + slides.length) % slides.length;
                 showSlide(currentSlide);
+                startAutoSlide(); // Reinicia o timer com o tempo dinâmico do slide anterior
             }
 
-            // Troca automática: 5000 = 5 segundos
+            // Troca automática com tempo dinâmico baseado no ID do slide ativo
             function startAutoSlide() {
-                clearInterval(autoSlideInterval);
-                autoSlideInterval = setInterval(nextSlide, 5000);
+                clearTimeout(autoSlideTimer); // Limpa o timer anterior para evitar sobreposição
+
+                let slideTime = 5000; // Tempo padrão: 5 segundos para os demais slides
+
+                // Pega o elemento do slide que está ativo no momento
+                const activeSlide = slides[currentSlide];
+
+                // Se o slide ativo for o da campanha (identificado pelo ID), o tempo muda para 10 segundos
+                if (activeSlide && activeSlide.id === 'campanha') {
+                    slideTime = 10000; // 10 segundos (ajuste aqui se quiser outro tempo)
+                }
+
+                autoSlideTimer = setTimeout(nextSlide, slideTime);
             }
 
-            // Clique nas setas (e reinicia a contagem do automático)
+            // Clique na seta "próximo" (avança e reinicia a contagem)
             if (nextBtn) {
                 nextBtn.addEventListener('click', function () {
                     nextSlide();
-                    startAutoSlide();
                 });
             }
 
+            // Clique na seta "anterior" (volta e reinicia a contagem)
             if (prevBtn) {
                 prevBtn.addEventListener('click', function () {
                     prevSlide();
-                    startAutoSlide();
                 });
             }
 
-            // Inicialização
+            // Inicialização do carrossel
             showSlide(currentSlide);
             startAutoSlide();
         });
-
     </script>
 
 </body>
