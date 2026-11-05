@@ -116,6 +116,24 @@ section p {
     stroke: currentColor; /* Faz o ícone herdar a cor do texto automaticamente */
 }
 
+/* Links HER / HIM (ícone + palavra) */
+.menu-item-song {
+    display: inline-flex;
+    align-items: center;
+     
+    text-decoration: none;
+    font-family: var(--font); /* Mesma fonte do site (igual ao page.css) */
+    color: var(--font);
+    border: 0;
+}
+
+/* Tamanho e cor dos ícones SVG do menu */
+.menu-item-song svg {
+    width: 18px;  /* Ajuste aqui se quiser o ícone maior ou menor */
+    height: 18px; /* Mantenha igual à largura */
+    stroke: currentColor; /* Faz o ícone herdar a cor do texto automaticamente */
+}
+
 
 /* ==========================================================
    4. LOGO + TÍTULO DE ABERTURA  (<div id="logo"> no index)
