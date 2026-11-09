@@ -284,6 +284,34 @@ section p {
     background-size: 250% auto;
 }
 
+.btn-click-here-campaign {
+
+    display: inline-block;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+
+    /* Gradiente estendido idêntico ao do botão flutuante */
+    background: linear-gradient(135deg, #072229 0%, #10373d 35%, white 50%, #10373d 65%, #072229 100%);
+    background-size: 250% auto;
+
+    /* Aplica a animação contínua de brilho */
+    animation: brilhoGradiente 4s ease infinite;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+}
+
+.btn-click-here-campaign:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+    background: linear-gradient(135deg, #7A5C38 0%, #A38257 35%, white 50%, #A38257 65%, #7A5C38 100%);
+    background-size: 250% auto;
+}
+
 /* Animação de brilho (também usada pelo botão flutuante, seção 13) */
 @keyframes brilhoGradiente {
     0% {
