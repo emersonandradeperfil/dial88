@@ -711,10 +711,11 @@ section p {
 .btn-flutuante-social {
     
     background-color: var(--fundo);
-    padding: 2px 2px;
+    padding: 6px 6px;
     border-radius: 50px;
     display: flex;
     cursor: default;
+    border: 1px solid var(--texto);
 
 }
 
@@ -982,13 +983,13 @@ section p {
     #social {
 
         bottom: 55px;
-        left: 9px;
+        left: 12px;
         flex-direction: column;
     }
 
     .btn-flutuante-social {
 
-        padding: 3px 3px;
+        padding: 6px 6px;
         
     }
 
