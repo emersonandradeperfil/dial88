@@ -830,6 +830,82 @@ section p {
     stroke: #000;
 }
 
+/* ==========================================================
+   BONUS. LGPD
+   ========================================================== */
+
+/* Estilo do Banner de Cookies */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 15px 20px;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.cookie-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.cookie-content p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.4;
+    flex: 1;
+    color: #e0e0e0;
+}
+
+.cookie-content a {
+    color: #c5a059;
+    text-decoration: underline;
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-cookie {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.btn-rejeitar {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+}
+
+.btn-rejeitar:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn-aceitar {
+    background-color: #c5a059; /* Cor padrão da paleta do site */
+    color: #ffffff;
+}
+
+.btn-aceitar:hover {
+    background-color: #b08d48;
+}
+
 
 /* ==========================================================
    15. RODAPÉ INSTITUCIONAL  (todas as páginas)
@@ -1005,4 +1081,36 @@ section p {
     .aviso-transparencia p {
         font-size: 0.68rem;
     }
+
+    /* Responsividade do Banner de Cookies para telas abaixo de 768px */
+
+    .cookie-banner {
+        padding: 12px 15px;
+    }
+
+    .cookie-content {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .cookie-content p {
+        font-size: 13px;
+        text-align: center;
+    }
+
+    .cookie-buttons {
+        display: flex;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .btn-cookie {
+        flex: 1; /* Faz os botões dividirem o espaço igualmente na horizontal */
+        padding: 10px;
+        font-size: 13px;
+        text-align: center;
+    }
+
+
 }

@@ -259,30 +259,15 @@
     <!-- ==========================================================
          RODAPÉ INSTITUCIONAL  [CSS 15]
          ========================================================== -->
+    <div id="lgpd-container"></div>
     <div id="footer-container"></div>
     <script src="js/componentes.js"></script>
+    
 
     <!-- ==========================================================
          JAVASCRIPT: abrir e fechar o modal do catálogo
          ========================================================== -->
-    <script>
-
-        // Abre/fecha o modal (usado pelos botões EXPLORE, BROWSE, CATALOG e pelo X)
-        function toggleCatalogDialog() {
-            const dialog = document.getElementById('catalogDialog');
-            dialog.classList.toggle('active');
-        }
-
-        // Fecha o dialog se o usuário clicar no fundo escuro (fora da caixinha)
-        function fecharDialogFora(event) {
-            const dialog = document.getElementById('catalogDialog');
-            if (event.target === dialog) {
-                dialog.classList.remove('active');
-            }
-        }
-
-    </script>
-
+  
 </body>
 
 </html>
